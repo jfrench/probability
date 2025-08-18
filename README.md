@@ -1,0 +1,1 @@
+The repository contains materials I have created for MATH 5310 - Probability, an introductory graduate-level course at the University of Colorado Denver. The materials are currently based off of Introduction to Probability by Bertsekas and Tsitsiklis.
