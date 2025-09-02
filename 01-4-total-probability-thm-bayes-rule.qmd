@@ -1,0 +1,140 @@
+---
+format:
+    revealjs:
+        css: style.css
+self-contained: true
+callout-icon: false
+callout-appearance: simple
+---
+
+# 1.4 Total Probability Theorem and Bayes' Rule
+
+# Total Probability Theorem
+
+## Total Probability Theorem
+
+::: {.callout-note}
+**Total Probabilty Theorem**
+
+Let $A_1, \ldots, A_n$ be disjoint events that partition the sample space, $\Omega$, and assume the $P(A_i) > 0$, for all $i$. 
+
+Then for any event $B\subseteq \Omega$, 
+\begin{align}
+P(B) &= P(A_1 \cap B) + \dots + P(A_n \cap B)\\
+&= P(A_1) P(B \mid A_1) + \dots + P(A_n) P(B \mid A_n).
+\end{align}
+:::
+
+## Total Probability Theorem Visualized
+
+![Visualization and verification of the total probability theorem](./images/f1-13.png){fig-alt="Visualization and verification of the total probability theorem."}
+
+## Total Probability Theorem Visualized (cont)
+
+![Alternative visualization of the total probability theorem](./images/f1-13b.png){fig-alt="Alternative visualization of the total probability theorem."}
+
+## Example 1.13
+
+You enter a chess tournament where your probability of wining a game is 0.3 against halp the players (type 1), 0.4 against a quarter of the players (type 2), and 0.5 against the remaining quarter of the players (type 3).
+
+You play a game against a randomly chosen opponent. What is the probability of winning?
+
+## Example 1.13 (continued)
+
+## Example 1.14
+
+You roll a fair four-sided die. If the result is 1 or 2, you roll once more but otherwise, you stop. 
+
+What is the probability that the sum total of your rolls is at least 4?
+
+## Example 1.14 (continued)
+
+## Example 1.14 (continued)
+
+## Example 1.15
+
+Alice is taking a probability class. At the end of each week, she can be either up-to-date or she may have fallen behind. If she is up-to-date in a given week, the probability that she will be up-to-date in the next week is 0.8. If she is behind in a given week, the probability that she will be up-to-date in the next week is 0.4. Alice is up-to-date when she start the class (by default). What is the probability that she is up-to-date after three weeks?
+
+## Example 1.15 (continued)
+
+# Inference and Bayes' Rule
+
+## Bayes' Rule
+
+::: {.callout-note}
+**Bayes' Rule**
+Let $A_1, \ldots, A_n$ be disjoint events that partition the sample space, $\Omega$, and assume the $P(A_i) > 0$, for all $i$. Then, for any event $B$ such that $P(B) >0$, we have
+
+\begin{align}
+P(A_i \mid B) &= \displaystyle{\frac{P(A_i)P(B \mid A_i)}{P(B)}} \\
+&= \displaystyle{\frac{P(A_i)P(B \mid A_i)}{P(A_1)P(B \mid A_1) + \dots + P(A_n)P(B \mid A_n)}}.
+\end{align}
+:::
+
+## Bayes' Rule Visualized
+
+Suppose we observe a shade in a person's X-ray (event $B$).
+
+We want to estimate the probability of three mutually exclusive and collectively exhaustic potential causes: 1. a malignant tumor ($A_1$), 2. a non-malignant tomor ($A_2$), 3. something other than a tumor ($A_3$).
+
+Given that we see a shade ($B$ has occurred), Bayes' rule gives us the conditional probabilities of the various causes.
+
+## Bayes' Rule Visualized
+
+![Visualization of Bayes' Rule](./images/f1-14.png){fig-alt="Visualization of Bayes' Rule."}
+
+## Bayes' Rule
+
+Bayes' rule is often used for **inference**.
+
+Given that effect $B$ has been observed, we wish to evaluate the probability $P(A_i \mid B)$ that the cause $A_i$ is present.
+
+- $P(A_i \mid B)$ is the **posterior probability** of event $A_i$ given the information $B$.
+- $P(A_i)$ is the **prior probability** in this context.
+
+## Example 1.16
+
+Let
+$$
+A = \{\text{An aircraft is present}\}.
+$$
+$$
+B = \{\text{The radar signals an alarm}\}.
+$$
+
+We are given that
+$$
+P(A)=0.05, \quad P(B \mid A) = 0.99, \quad P(B \mid A^c) = 0.1.
+$$
+
+Determine $P(\text{aircraft present}\mid\text{alarm})$.
+
+## Example 1.16 (cont)
+
+## Example 1.17 (Example 1.13 continued)
+
+Let $A_i$ be the event of getting a player of type $i$ and $B$ be the event of winning.
+
+We have:
+$$
+P(A_1) = 0.5,\quad P(A_2) = 0.25,\quad P(A_3) = 0.25.
+$$
+$$
+P(B \mid A_1) = 0.3, \quad P(B \mid A_2) = 0.4, \quad P(B \mid A_3) = 0.5.
+$$
+
+What is $P(A_1 \mid B)$, i.e., the probability you defeated opponent 1 given that you won the match?
+
+## Example 1.17 (cont)
+
+## Example 1.18 (The False-Positive Puzzle)
+
+A test for a certain rare diesease correct with probability 0.95 given that the person has the disease.
+
+If the person does not have the disease, the test results are negative with probability 0.95.
+
+A random person drawn from a population has probability 0.001 of having the disease.
+
+Given that a person tests positive for the disease, what is the probability the person has the disease?
+
+## Example 1.18 (cont)
