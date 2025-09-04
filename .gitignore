@@ -250,3 +250,5 @@ vignettes/*.pdf
 
 # images folder
 /images/
+
+*.html

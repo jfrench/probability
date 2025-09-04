@@ -1,0 +1,1731 @@
+---
+title: Chapter 1: Sample Space and Probability
+format:
+    revealjs:
+        css: style.css
+self-contained: true
+---
+
+## Probability philosophies
+
+There are different philosophical approaches to probability.
+<hr>
+**Classical**: Assuming that the probability of each simple outcome is equal, the probability of an event is the fraction of the total number of possibilities in which the event occurs.
+
+- What's the probability of getting a flush in poker?
+- What's the probability of a rolling a 6 for a fair die?
+
+## Probability philosophies
+
+**Frequency of occurence**: The probability of an event occurring is the proportion of time it will occur when independent experiments are performed many times.
+
+- What's the probability of rolling a 6 for a weighted die?
+- Using "analytics", what's the probability of hitting a walk off home run in the bottom of the 9th inning of a baseball game?
+
+## Probability philosophies
+
+**Subjective**: Our opinion about how likely an event will occur when the experiment can only be performed once.
+
+- What's the probability that our rocket launches successfully?
+- What's the probability of the current pitcher blowing the save in the baseball game I'm watching right now?
+
+## Probability philosophies
+
+There can be overlap between the philosophies.
+<hr>
+We can approximate the results of classical probability using the frequency of outcome approach.
+<hr>
+E.g., run a computer experiment that simulates dealing 5 cards from a deck and considering the proportion of experiments that results in a flush.
+
+# 1.1 Sets
+
+## Terminology and notation
+
+A **set** is a collection of **elements**.
+
+- If $x$ is an element of a set $S$, then we write 
+- If $x$ is not an element of a $S$, when we write
+
+The **empty set** is a set with no elements.
+
+- The empty set is denoted by
+
+## Terminology and notation
+
+Sets can be denoted in several ways.
+
+A finite set might be listed directly.
+
+## Terminology and notation
+
+A countably infinite set where the items can be listed can be written as 
+
+## Terminology and notation
+
+An uncountably infinite set will likely be defined using the symbol "|", which may be read as "such that" or "conditional on" a property being satisifed.
+<hr>
+Formally, a set of elements is uncountable if 
+<hr>
+<hr>
+Practically, a set of elements if uncountable if
+<hr>
+<hr>
+The set of real numbers between 0 and 1 (inclusive) can be written as 
+
+## Terminology and notation
+
+A set $S$ is a **subset** of a set $T$ if every element of $S$ is also an element of $T$.
+
+- This is denoted 
+
+## Terminology and notation
+
+The **universal** set is the set of all possible elements in a set.
+
+- This is denoted
+
+## Set Operations
+
+The **complement** of a set $S$ is $\{x\in\Omega \mid x\not\in S\}$.
+
+- The complement of set is denoted
+- Note: $\Omega^c = \emptyset$.
+
+## Set Operations
+
+The **union** of two sets $S$ and $T$ is the set of all elements that belong to $S$ or $T$ or both.
+
+- This is denoted
+- $S\cup T = \{x\mid x\in S\text{ or }x \in T\}$.
+ 
+## Set Operations
+
+The **intersection** of $S$ and $T$ is the set of all elements that belong to $S$ and $T$. 
+
+- This is denoted
+- $S\cap T = \{x\mid x\in S\text{ and }x \in T\}$.
+
+## Set Operations
+
+To denote the union or intersection of many (of a countably infinite number of events), we use notation such as:
+
+- $\bigcup_{i=1}^k S_i = S_1 \cup S_2 \cup \dots \cup S_k$.
+- $\bigcup_{i=1}^\infty S_i$.
+- $\bigcap_{i=1}^k S_i = S_1 \cap S_2 \cap \dots \cup S_k$.
+- $\bigcap_{i=1}^\infty S_i$.
+
+## Set Operations
+
+Two sets $S$ and $T$ are **disjoint** if $S\cap T = \emptyset$.
+
+- i.e., if their intersection is the empty set.
+
+## Set Operations
+
+A collection of sets is a **partition** of $S$ if the sets are disjoint and their union is $S$.
+
+## Venn diagram of subset
+
+## Venn diagram of intersection
+
+## Venn diagram of union
+
+## Venn diagram of subset
+
+## Venn diagram of complement
+
+## Venn diagram of partition
+
+## Set Algebra
+
+Union and intersection operations are commutative.
+
+- $S\cup T = T \cup S$.
+- $S\cap T = T \cap S$.
+
+## Set Algebra
+
+Union operations are associative. Separately, intersection operations are associative.
+
+- $(S\cup T) \cup U = S \cup (T \cup U)$.
+- $(S\cap T) \cap U = S \cap (T \cap U)$.
+
+## Set Algebra
+
+Intersection and union operations are distributive:
+
+- $S \cap (T\cup U) = (S\cap T) \cup (S\cap U)$.
+- $S \cup (T \cap U)$ = $(S \cup T) \cap (S \cup U)$.
+
+## Set Algebra
+
+Some other facts:
+
+- $(S^c)^c = S$.
+- $S \cup \Omega = \Omega$.
+- $S \cap S^c = \emptyset$.
+- $S \cap \Omega = S$.
+
+## Set Algebra
+
+**de Morgan's laws** state that
+
+$$\left(\bigcup_ n S_n\right)^c = \bigcap_n S_n^c.$$
+
+$$\left(\bigcap_ n S_n \right)^c  = \bigcup_n S_n^c.$$
+
+## Set Algebra
+
+de Morgan's Proof:
+
+## Set Algebra
+
+de Morgan's Proof (continued):
+
+# Probabilistic Models
+
+A probabilistic model is a mathematical description of an uncertain situation.
+
+The two main ingredients of a probabilistic model are:
+
+- The **sample space**, $\Omega$, which is the set of all possible outcomes of an experiment.
+- The **probability law**, which assigns to a set $A$ of possible outcomes (also called an event) non-negative number $P(A)$ (called the probability of $A$)that encodes our knowledge or belief about the collective “likelihood” of the elements of A.
+
+The probability law must satisfy
+certain properties to be introduced shortly.
+Experiment
+Sample Space Ω
+(Set of Outcomes)Event AEvent B
+ABEventsP(A)P(B)Probability
+Law
+Figure 1.2: The main ingredients of a probabilistic model.
+Sample Spaces and Events
+Every probabilistic model involves an underlying process, called the experi-
+ment ,that will produce exactly one out of several possible outcomes .The set
+of all possible outcomes is called the sample space of the experiment, and is
+denoted by Ω. A subset of the sample space, that is, a collection of possible -->
+
+<!-- Sec. 1.2 Probabilistic Models 7
+outcomes, is called an event .†There is no restriction on what constitutes an
+experiment. For example, it could be a single toss of a coin, or three tosses,or an inﬁnite sequence of tosses. However, it is important to note that in ourformulation of a probabilistic model, there is only one experiment. So, threetosses of a coin constitute a single experiment, rather than three experiments.
+The sample space of an experiment may consist of a ﬁnite or an inﬁnite
+number of possible outcomes. Finite sample spaces are conceptually and math-
+ematically simpler. Still, sample spaces with an inﬁnite number of elements arequite common. For an example, consider throwing a dart on a square target andviewing the point of impact as the outcome.
+Choosing an Appropriate Sample SpaceRegardless of their number, diﬀerent elements of the sample space should be
+distinct and mutually exclusive so that when the experiment is carried out,
+there is a unique outcome. For example, the sample space associated with theroll of a die cannot contain “1 or 3” as a possible outcome and also “1 or 4” asanother possible outcome. When the roll is a 1, the outcome of the experimentwould not be unique.
+Agiven physical situation may be modeled in several diﬀerent ways, de-
+pending on the kind of questions that we are interested in. Generally, the sample
+space chosen for a probabilistic model must be collectively exhaustive ,i nthe
+sense that no matter what happens in the experiment, we always obtain an out-come that has been included in the sample space. In addition, the sample spaceshould have enough detail to distinguish between all outcomes of interest to themodeler, while avoiding irrelevant details.
+Example 1.1. Consider two alternative games, both involving ten successive coin
+tosses:
+Game 1: Wereceive \textbackslash{}$1 each time a head comes up.
+Game 2: Wereceive \textbackslash{}$1 for every coin toss, up to and including the ﬁrst time
+ahead comes up. Then, we receive \textbackslash{}$2 for every coin toss, up to the second
+time a head comes up. More generally, the dollar amount per toss is doubledeach time a head comes up.
+†Any collection of possible outcomes, including the entire sample space Ω and
+its complement, the empty set Ø, may qualify as an event. Strictly speaking, however,some sets have to be excluded. In particular, when dealing with probabilistic modelsinvolving an uncountably inﬁnite sample space, there are certain unusual subsets forwhich one cannot associate meaningful probabilities. This is an intricate technical issue,involving the mathematics of measure theory. Fortunately, such pathological subsetsdo not arise in the problems considered in this text or in practice, and the issue can besafely ignored.
+
+8 Sample Space and Probability Chap. 1
+In game 1, it is only the total number of heads in the ten-toss sequence that mat-
+ters, while in game 2, the order of heads and tails is also important. Thus, inaprobabilistic model for game 1, we can work with a sample space consisting of
+eleven possible outcomes, namely, 0 ,1,...,10. In game 2, a ﬁner grain description
+of the experiment is called for, and it is more appropriate to let the sample spaceconsist of every possible ten-long sequence of heads and tails.
+Sequential Models
+Many experiments have an inherently sequential character, such as for example
+tossing a coin three times, or observing the value of a stock on ﬁve successivedays, or receiving eight successive digits at a communication receiver. It is thenoften useful to describe the experiment and the associated sample space by meansof atree-based sequential description ,asinFig. 1.3.
+1
+122
+334
+4Sequential Tree
+DescriptionSample Space
+Pair of Rolls
+1st Roll2nd Roll1, 1
+1, 2
+1, 3
+1, 41
+2
+3
+4Root Leaves
+Figure 1.3: Two equivalent descriptions of the sample space of an experiment
+involving two rolls of a 4-sided die. The possible outcomes are all the ordered pairsof the form ( i, j), where iis the result of the ﬁrst roll, and jis the result of the
+second. These outcomes can be arranged in a 2-dimensional grid as in the ﬁgureon the left, or they can be described by the tree on the right, which reﬂects thesequential character of the experiment. Here, each possible outcome correspondsto a leaf of the tree and is associated with the unique path from the root to thatleaf. The shaded area on the left is the event \textbackslash{}{(1,4),(2,4),(3,4),(4,4)\textbackslash{}}that the
+result of the second roll is 4. That same event can be described as a set of leaves,as shown on the right. Note also that every node of the tree can be identiﬁed withan event, namely, the set of all leaves downstream from that node. For example,the node labeled by a 1 can be identiﬁed with the event \textbackslash{}{(1,1),(1,2),(1,3),(1,4)\textbackslash{}}
+that the result of the ﬁrst roll is 1.
+Probability Laws
+Suppose we have settled on the sample space Ω associated with an experiment.
+
+Sec. 1.2 Probabilistic Models 9
+Then, to complete the probabilistic model, we must introduce a probability
+law.Intuitively, this speciﬁes the “likelihood” of any outcome, or of any set of
+possible outcomes (an event, as we have called it earlier). More precisely, the
+probability law assigns to every event A,an u m b e r P(A), called the probability
+ofA,satisfying the following axioms.
+Probability Axioms
+1.(Nonnegativity) P (A)≥0, for every event A.
+2.(Additivity) IfAandBare two disjoint events, then the probability
+of their union satisﬁes
+P(A∪B)=P(A)+P(B).
+Furthermore, if the sample space has an inﬁnite number of elements
+andA1,A2,...is a sequence of disjoint events, then the probability of
+their union satisﬁes
+P(A1∪A2∪···)=P(A1)+P(A2)+···
+3.(Normalization) The probability of the entire sample space Ω is
+equal to 1, that is, P(Ω) = 1 .
+In order to visualize a probability law, consider a unit of mass which is
+to be “spread” over the sample space. Then, P(A)issimply the total mass
+that was assigned collectively to the elements of A.Interms of this analogy, the
+additivity axiom becomes quite intuitive: the total mass in a sequence of disjointevents is the sum of their individual masses.
+Amore concrete interpretation of probabilities is in terms of relative fre-
+quencies: a statement such as P(A)=2/3often represents a belief that event A
+will materialize in about two thirds out of a large number of repetitions of theexperiment. Such an interpretation, though not always appropriate, can some-times facilitate our intuitive understanding. It will be revisited in Chapter 7, inour study of limit theorems.
+There are many natural properties of a probability law which have not been
+included in the above axioms for the simple reason that they can be derived
+from them. For example, note that the normalization and additivity axiomsimply that
+1=P(Ω) =P(Ω∪Ø) =P(Ω) +P(Ø) = 1 + P(Ø),
+and this shows that the probability of the empty event is 0:
+P(Ø) = 0 .
+
+10 Sample Space and Probability Chap. 1
+As another example, consider three disjoint events A1,A2,andA3.W ecan use
+the additivity axiom for two disjoint events repeatedly, to obtain
+P(A1∪A2∪A3)=P/parenleftbig
+A1∪(A2∪A2)/parenrightbig
+=P(A1)+P(A2∪A3)
+=P(A1)+P(A2)+P(A3).
+Proceeding similarly, we obtain that the probability of the union of ﬁnitely many
+disjoint events is always equal to the sum of the probabilities of these events.More such properties will be considered shortly.
+Discrete ModelsHere is an illustration of how to construct a probability law starting from some
+common sense assumptions about a model.
+Example 1.2. Coin tosses. Consider an experiment involving a single coin
+toss. There are two possible outcomes, heads ( H)and tails ( T). The sample space
+is Ω = \textbackslash{}{H,T\textbackslash{}},and the events are
+\textbackslash{}{H,T\textbackslash{}},\textbackslash{}{H\textbackslash{}},\textbackslash{}{T\textbackslash{}},Ø.
+If the coin is fair, i.e., if we believe that heads and tails are “equally likely,” we
+should assign equal probabilities to the two possible outcomes and specify thatP/parenleftbig
+\textbackslash{}{H\textbackslash{}}/parenrightbig
+=P/parenleftbig
+\textbackslash{}{T\textbackslash{}}/parenrightbig
+=0.5. The additivity axiom implies that
+P/parenleftbig
+\textbackslash{}{H,T\textbackslash{}}/parenrightbig
+=P/parenleftbig
+\textbackslash{}{H\textbackslash{}}/parenrightbig
++P/parenleftbig
+\textbackslash{}{T\textbackslash{}}/parenrightbig
+=1,
+which is consistent with the normalization axiom. Thus, the probability law is given
+by
+P/parenleftbig
+\textbackslash{}{H,T\textbackslash{}}/parenrightbig
+=1,P/parenleftbig
+\textbackslash{}{H\textbackslash{}}/parenrightbig
+=0.5,P/parenleftbig
+\textbackslash{}{T\textbackslash{}}/parenrightbig
+=0.5,P(Ø) = 0 ,
+and satisﬁes all three axioms.
+Consider another experiment involving three coin tosses. The outcome will
+now be a 3-long string of heads or tails. The sample space is
+Ω=\textbackslash{}{HHH, HHT ,H T H ,H T T ,T H H ,T H T ,T T H ,T T T \textbackslash{}}.
+Weassume that each possible outcome has the same probability of 1/8. Let us
+construct a probability law that satisﬁes the three axioms. Consider, as an example,the event
+A=\textbackslash{}{exactly 2 heads occur \textbackslash{}}=\textbackslash{}{HHT, HTH, THH \textbackslash{}}.
+
+Sec. 1.2 Probabilistic Models 11
+Using additivity, the probability of Ais the sum of the probabilities of its elements:
+P/parenleftbig
+\textbackslash{}{HHT, HTH, THH \textbackslash{}}/parenrightbig
+=P/parenleftbig
+\textbackslash{}{HHT \textbackslash{}}/parenrightbig
++P/parenleftbig
+\textbackslash{}{HTH \textbackslash{}}/parenrightbig
++P/parenleftbig
+\textbackslash{}{THH \textbackslash{}}/parenrightbig
+=1
+8+1
+8+1
+8
+=3
+8.
+Similarly, the probability of any event is equal to 1/8 times the number of possible
+outcomes contained in the event. This deﬁnes a probability law that satisﬁes thethree axioms.
+By using the additivity axiom and by generalizing the reasoning in the
+preceding example, we reach the following conclusion.
+Discrete Probability Law
+If the sample space consists of a ﬁnite number of possible outcomes, then the
+probability law is speciﬁed by the probabilities of the events that consist ofasingle element. In particular, the probability of any event \textbackslash{}{s
+1,s2,...,s n\textbackslash{}}
+is the sum of the probabilities of its elements:
+P/parenleftbig
+\textbackslash{}{s1,s2,...,s n\textbackslash{}}/parenrightbig
+=P/parenleftbig
+\textbackslash{}{s1\textbackslash{}}/parenrightbig
++P/parenleftbig
+\textbackslash{}{s2\textbackslash{}}/parenrightbig
++···+P/parenleftbig
+\textbackslash{}{sn\textbackslash{}}/parenrightbig
+.
+In the special case where the probabilities P/parenleftbig
+\textbackslash{}{s1\textbackslash{}}),...,P(\textbackslash{}{sn\textbackslash{}}/parenrightbig
+are all the
+same (by necessity equal to 1 /n,inview of the normalization axiom), we obtain
+the following.
+Discrete Uniform Probability Law
+If the sample space consists of npossible outcomes which are equally likely
+(i.e., all single-element events have the same probability), then the proba-bility of any event Ais given by
+P(A)=Number of elements of A
+n.
+Let us provide a few more examples of sample spaces and probability laws.
+Example 1.3. Dice. Consider the experiment of rolling a pair of 4-sided dice (cf.
+Fig. 1.4). We assume the dice are fair, and we interpret this assumption to mean
+
+12 Sample Space and Probability Chap. 1
+that each of the sixteen possible outcomes [ordered pairs ( i, j), with i, j=1,2,3,4],
+has the same probability of 1/16. To calculate the probability of an event, wemust count the number of elements of event and divide by 16 (the total number of
+possible outcomes). Here are some event probabilities calculated in this way:
+P/parenleftbig
+\textbackslash{}{the sum of the rolls is even \textbackslash{}}/parenrightbig
+=8/16 = 1 /2,
+P/parenleftbig
+\textbackslash{}{the sum of the rolls is odd \textbackslash{}}/parenrightbig
+=8/16 = 1 /2,
+P/parenleftbig
+\textbackslash{}{the ﬁrst roll is equal to the second \textbackslash{}}/parenrightbig
+=4/16 = 1 /4,
+P/parenleftbig
+\textbackslash{}{the ﬁrst roll is larger than the second \textbackslash{}}/parenrightbig
+=6/16 = 3 /8,
+P/parenleftbig
+\textbackslash{}{at least one roll is equal to 4 \textbackslash{}}/parenrightbig
+=7/16.
+1
+122
+334
+4Sample Space
+Pair of Rolls
+1st Roll2nd Roll
+Event 
+\textbackslash{}{the first roll is equal to the second\textbackslash{}}
+Probability = 4/16Event 
+\textbackslash{}{at least one roll is a 4\textbackslash{}}
+Probability = 7/16
+Figure 1.4: Various events in the experiment of rolling a pair of 4-sided dice,
+and their probabilities, calculated according to the discrete uniform law.
+Continuous Models
+Probabilistic models with continuous sample spaces diﬀer from their discrete
+counterparts in that the probabilities of the single-element events may not besuﬃcient to characterize the probability law. This is illustrated in the followingexamples, which also illustrate how to generalize the uniform probability law tothe case of a continuous sample space.
+
+Sec. 1.2 Probabilistic Models 13
+Example 1.4. Awheel of fortune is continuously calibrated from 0 to 1, so the
+possible outcomes of an experiment consisting of a single spin are the numbers in
+the interval Ω = [0 ,1]. Assuming a fair wheel, it is appropriate to consider all
+outcomes equally likely, but what is the probability of the event consisting of asingle element? It cannot be positive, because then, using the additivity axiom, itwould follow that events with a suﬃciently large number of elements would have
+probability larger than 1. Therefore, the probability of any event that consists of asingle element must be 0.
+In this example, it makes sense to assign probability b−ato any subinterval
+[a, b]o f[ 0 ,1], and to calculate the probability of a more complicated set by eval-
+uating its “length.”†This assignment satisﬁes the three probability axioms and
+qualiﬁes as a legitimate probability law.
+Example 1.5. Romeo and Juliet have a date at a given time, and each will arrive
+at the meeting place with a delay between 0 and 1 hour, with all pairs of delaysbeing equally likely. The ﬁrst to arrive will wait for 15 minutes and will leave if the
+other has not yet arrived. What is the probability that they will meet?
+Let us use as sample space the square Ω = [0 ,1]×[0,1], whose elements are
+the possible pairs of delays for the two of them. Our interpretation of “equallylikely” pairs of delays is to let the probability of a subset of Ω be equal to its area.This probability law satisﬁes the three probability axioms. The event that Romeoand Juliet will meet is the shaded region in Fig. 1.5, and its probability is calculatedto be 7/16.
+Properties of Probability Laws
+Probability laws have a number of properties, which can be deduced from the
+axioms. Some of them are summarized below.
+Some Properties of Probability Laws
+Consider a probability law, and let A,B,andCbe events.
+(a) If A⊂B,thenP(A)≤P(B).
+(b)P(A∪B)=P(A)+P(B)−P(A∩B).
+(c)P(A∪B)≤P(A)+P(B).
+(d)P(A∪B∪C)=P(A)+P(Ac∩B)+P(Ac∩Bc∩C).
+†The “length” of a subset Sof [0,1] is the integral/integraltext
+Sdt,which is deﬁned, for
+“nice” sets S,inthe usual calculus sense. For unusual sets, this integral may not be
+well deﬁned mathematically, but such issues belong to a more advanced treatment of
+the subject.
+
+14 Sample Space and Probability Chap. 1
+011
+xy
+1/4
+1/4M
+Figure 1.5: The event Mthat Romeo and Juliet will arrive within 15 minutes
+of each other (cf. Example 1.5) is
+M=/braceleftbig
+(x, y)/vextendsingle/vextendsingle|x−y|≤1/4,0≤x≤1,0≤y≤1/bracerightbig
+,
+and is shaded in the ﬁgure. The area of Mis 1 minus the area of the two unshaded
+triangles, or 1 −(3/4)·(3/4)=7/16. Thus, the probability of meeting is 7/16.
+These properties, and other similar ones, can be visualized and veriﬁed
+graphically using Venn diagrams, as in Fig. 1.6. For a further example, notethat we can apply property (c) repeatedly and obtain the inequality
+P(A
+1∪A2∪···∪ An)≤n/summationdisplay
+i=1P(Ai).
+In more detail, let us apply property (c) to the sets A1andA2∪···∪ An,t o
+obtain
+P(A1∪A2∪···∪ An)≤P(A1)+P(A2∪···∪ An).
+Wealso apply property (c) to the sets A2andA3∪···∪ Anto obtain
+P(A2∪···∪ An)≤P(A2)+P(A3∪···∪An),
+continue similarly, and ﬁnally add.
+Models and Reality
+Using the framework of probability theory to analyze a physical but uncertain
+situation, involves two distinct stages.
+(a) In the ﬁrst stage, we construct a probabilistic model, by specifying a prob-
+ability law on a suitably deﬁned sample space. There are no hard rules to
+
+Sec. 1.2 Probabilistic Models 15
+A AB
+AB
+CB
+(a) (b)
+(c)AB
+U UABc
+C
+UABc Uc UABc
+Figure 1.6: Visualization and veriﬁcation of various properties of probability
+laws using Venn diagrams. If A⊂B,then Bis the union of the two disjoint
+events AandAc∩B;see diagram (a). Therefore, by the additivity axiom, we
+have
+P(B)=P(A)+P(Ac∩B)≥P(A),
+where the inequality follows from the nonnegativity axiom, and veriﬁes prop-
+erty (a).
+From diagram (b), we can express the events A∪BandBas unions of
+disjoint events:
+A∪B=A∪(Ac∩B),B =(A∩B)∪(Ac∩B).
+The additivity axiom yields
+P(A∪B)=P(A)+P(Ac∩B),P(B)=P(A∩B)+P(Ac∩B).
+Subtracting the second equality from the ﬁrst and rearranging terms, we obtain
+P(A∪B)=P(A)+P(B)−P(A∩B), verifying property (b). Using also the fact
+P(A∩B)≥0(the nonnegativity axiom), we obtain P(A∪B)≤P(A)+P(B),
+verifying property (c)
+From diagram (c), we see that the event A∪B∪Ccan be expressed as a
+union of three disjoint events:
+A∪B∪C=A∪(Ac∩B)∪(Ac∩Bc∩C),
+so property (d) follows as a consequence of the additivity axiom.
+
+16 Sample Space and Probability Chap. 1
+guide this step, other than the requirement that the probability law con-
+form to the three axioms. Reasonable people may disagree on which modelbest represents reality. In many cases, one may even want to use a some-
+what “incorrect” model, if it is simpler than the “correct” one or allows fortractable calculations. This is consistent with common practice in scienceand engineering, where the choice of a model often involves a tradeoﬀ be-tween accuracy, simplicity, and tractability. Sometimes, a model is chosen
+on the basis of historical data or past outcomes of similar experiments.Systematic methods for doing so belong to the ﬁeld of statistics ,atopic
+that we will touch upon in the last chapter of this book.
+(b) In the second stage, we work within a fully speciﬁed probabilistic model and
+derive the probabilities of certain events, or deduce some interesting prop-erties. While the ﬁrst stage entails the often open-ended task of connectingthe real world with mathematics, the second one is tightly regulated by therules of ordinary logic and the axioms of probability. Diﬃculties may arisein the latter if some required calculations are complex, or if a probabilitylaw is speciﬁed in an indirect fashion. Even so, there is no room for ambi-guity: all conceivable questions have precise answers and it is only a matterof developing the skill to arrive at them.
+Probability theory is full of “paradoxes” in which diﬀerent calculation
+methods seem to give diﬀerent answers to the same question. Invariably though,these apparent inconsistencies turn out to reﬂect poorly speciﬁed or ambiguousprobabilistic models. -->
+<!-- 1.3 CONDITIONAL PROBABILITY
+Conditional probability provides us with a way to reason about the outcome
+of an experiment, based on partial information .Here are some examples of
+situations we have in mind:
+(a) In an experiment involving two successive rolls of a die, you are told that
+the sum of the two rolls is 9. How likely is it that the ﬁrst roll was a 6?
+(b) In a word guessing game, the ﬁrst letter of the word is a “t”. What is the
+likelihood that the second letter is an “h”?
+(c) How likely is it that a person has a disease given that a medical test was
+negative?
+(d) A spot shows up on a radar screen. How likely is it that it corresponds to
+an aircraft?
+In more precise terms, given an experiment, a corresponding sample space,
+and a probability law, suppose that we know that the outcome is within somegiven event B.Wewish to quantify the likelihood that the outcome also belongs
+
+Sec. 1.3 Conditional Probability 17
+to some other given event A.Wethusseek to construct a new probability law,
+which takes into account this knowledge and which, for any event A,gives us
+theconditional probability of Agiven B,denoted by P(A|B).
+Wewould like the conditional probabilities P(A|B)ofdiﬀerent events A
+to constitute a legitimate probability law, that satisﬁes the probability axioms.They should also be consistent with our intuition in important special cases, e.g.,when all possible outcomes of the experiment are equally likely. For example,suppose that all six possible outcomes of a fair die roll are equally likely. If weare told that the outcome is even, we are left with only three possible outcomes,namely, 2, 4, and 6. These three outcomes were equally likely to start with,and so they should remain equally likely given the additional knowledge that theoutcome was even. Thus, it is reasonable to let
+P(the outcome is 6 |the outcome is even) =1
+3.
+This argument suggests that an appropriate deﬁnition of conditional probability
+when all outcomes are equally likely, is given by
+P(A|B)=number of elements of A∩B
+number of elements of B.
+Generalizing the argument, we introduce the following deﬁnition of condi-
+tional probability:
+P(A|B)=P(A∩B)
+P(B),
+where we assume that P(B)>0; the conditional probability is undeﬁned if the
+conditioning event has zero probability. In words, out of the total probability ofthe elements of B,P(A|B)isthe fraction that is assigned to possible outcomes
+that also belong to A.
+Conditional Probabilities Specify a Probability Law
+Foraﬁxed event B,itcan be veriﬁed that the conditional probabilities P(A|B)
+form a legitimate probability law that satisﬁes the three axioms. Indeed, non-negativity is clear. Furthermore,
+P(Ω|B)=P(Ω∩B)
+P(B)=P(B)
+P(B)=1,
+and the normalization axiom is also satisﬁed. In fact, since we have P(B|B)=
+P(B)/P(B)=1, all of the conditional probability is concentrated on B.T hus,
+wemight as well discard all possible outcomes outside Band treat the conditional
+probabilities as a probability law deﬁned on the new universe B.
+
+18 Sample Space and Probability Chap. 1
+Toverify the additivity axiom, we write for any two disjoint events A1and
+A2,
+P(A1∪A2|B)=P/parenleftbig
+(A1∪A2)∩B/parenrightbig
+P(B)
+=P((A1∩B)∪(A2∩B))
+P(B)
+=P(A1∩B)+P(A2∩B)
+P(B)
+=P(A1∩B)
+P(B)+P(A2∩B)
+P(B)
+=P(A1|B)+P(A2|B),
+where for the second equality, we used the fact that A1∩BandA2∩Bare
+disjoint sets, and for the third equality we used the additivity axiom for the(unconditional) probability law. The argument for a countable collection ofdisjoint sets is similar.
+Since conditional probabilities constitute a legitimate probability law, all
+general properties of probability laws remain valid. For example, a fact such asP(A∪C)≤P(A)+P(C)translates to the new fact
+P(A∪C|B)≤P(A|B)+P(C|B).
+Let us summarize the conclusions reached so far.
+Properties of Conditional Probability
+•The conditional probability of an event A,given an event Bwith
+P(B)>0, is deﬁned by
+P(A|B)=P(A∩B)
+P(B),
+and speciﬁes a new (conditional) probability law on the same sample
+space Ω. In particular, all known properties of probability laws remainvalid for conditional probability laws.
+•Conditional probabilities can also be viewed as a probability law on a
+new universe B,because all of the conditional probability is concen-
+trated on B.
+•In the case where the possible outcomes are ﬁnitely many and equally
+likely, we have
+P(A|B)=number of elements of A∩B
+number of elements of B.
+
+Sec. 1.3 Conditional Probability 19
+Example 1.6. Wetoss a fair coin three successive times. We wish to ﬁnd the
+conditional probability P(A|B)when AandBare the events
+A=\textbackslash{}{more heads than tails come up \textbackslash{}},B =\textbackslash{}{1st toss is a head \textbackslash{}}.
+The sample space consists of eight sequences,
+Ω=\textbackslash{}{HHH, HHT ,H T H ,H T T ,T H H ,T H T ,T T H ,T T T \textbackslash{}},
+which we assume to be equally likely. The event Bconsists of the four elements
+HHH, HHT, HTH, HTT ,soits probability is
+P(B)=4
+8.
+The event A∩Bconsists of the three elements outcomes HHH, HHT, HTH ,s o
+its probability is
+P(A∩B)=3
+8.
+Thus, the conditional probability P(A|B)i s
+P(A|B)=P(A∩B)
+P(B)=3/8
+4/8=3
+4.
+Because all possible outcomes are equally likely here, we can also compute P(A|B)
+using a shortcut. We can bypass the calculation of P(B)andP(A∩B), and simply
+divide the number of elements shared by AandB(which is 3) with the number of
+elements of B(which is 4), to obtain the same result 3/4.
+Example 1.7. Afair 4-sided die is rolled twice and we assume that all sixteen
+possible outcomes are equally likely. Let XandYbethe result of the 1st and the
+2nd roll, respectively. We wish to determine the conditional probability P(A|B)
+where
+A=/braceleftbig
+max(X,Y)=m/bracerightbig
+,B =/braceleftbig
+min(X,Y)=2/bracerightbig
+,
+andmtakes each of the values 1, 2, 3, 4.
+As in the preceding example, we can ﬁrst determine the probabilities P(A∩B)
+andP(B)bycounting the number of elements of A∩BandB,respectively, and
+dividing by 16. Alternatively, we can directly divide the number of elements ofA∩Bwith the number of elements of B;see Fig. 1.7.
+Example 1.8. Aconservative design team, call it C, and an innovative design
+team, call it N, are asked to separately design a new product within a month. Frompast experience we know that:
+(a) The probability that team C is successful is 2/3.
+
+20 Sample Space and Probability Chap. 1
+1
+122
+334
+4All Outcomes Equally Likely
+Probability = 1/16
+1st Roll X2nd Roll Y
+B
+Figure 1.7: Sample space of an experiment involving two rolls of a 4-sided die.
+(cf. Example 1.7). The conditioning event B=\textbackslash{}{min(X,Y)=2 \textbackslash{}}consists of the
+5-element shaded set. The set A=\textbackslash{}{max(X,Y)=m\textbackslash{}}shares with Btwoelements
+ifm=3o r m=4,one element if m=2,and no element if m=1 .T h us, we have
+P/parenleftbig
+\textbackslash{}{max(X,Y)=m\textbackslash{}}|B/parenrightbig
+=/braceleftbigg2/5i f m=3o r m=4 ,
+1/5i f m=2 ,
+0i f m=1 .
+(b) The probability that team N is successful is 1/2.
+(c) The probability that at least one team is successful is 3/4.
+If both teams are successful, the design of team N is adopted. Assuming that exactly
+one successful design is produced, what is the probability that it was designed byteam N?
+There are four possible outcomes here, corresponding to the four combinations
+of success and failure of the two teams:
+SS:both succeed, FF:both fail,
+SF:Csucceeds, N fails, FS:Cfails, N succeeds.
+Weare given that the probabilities of these outcomes satisfy
+P(SS)+P(SF)=2
+3,P(SS)+P(FS)=1
+2,P(SS)+P(SF)+P(FS)=3
+4.
+From these relations, together with the normalization equation P(SS)+P(SF)+
+P(FS)+P(FF)=1, we can obtain the probabilities of all the outcomes:
+P(SS)=5
+12,P(SF)=1
+4,P(FS)=1
+12,P(FF)=1
+4.
+The desired conditional probability is
+P/parenleftbig
+\textbackslash{}{FS\textbackslash{}}|\textbackslash{}{SF,FS \textbackslash{}}/parenrightbig
+=1
+12
+1
+4+1
+12=1
+4.
+
+Sec. 1.3 Conditional Probability 21
+Using Conditional Probability for Modeling
+When constructing probabilistic models for experiments that have a sequential
+character, it is often natural and convenient to ﬁrst specify conditional prob-
+abilities and then use them to determine unconditional probabilities. The ruleP(A∩B)=P(B)P(A|B), which is a restatement of the deﬁnition of conditional
+probability, is often helpful in this process.
+Example 1.9. Radar detection. If an aircraft is present in a certain area, a
+radar correctly registers its presence with probability 0.99. If it is not present, theradar falsely registers an aircraft presence with probability 0.10. We assume thatan aircraft is present with probability 0.05. What is the probability of false alarm(a false indication of aircraft presence), and the probability of missed detection(nothing registers, even though an aircraft is present)?
+Asequential representation of the sample space is appropriate here, as shown
+in Fig. 1.8. Let AandBbethe events
+A=\textbackslash{}{an aircraft is present \textbackslash{}},
+B=\textbackslash{}{the radar registers an aircraft presence \textbackslash{}},
+and consider also their complements
+A
+c=\textbackslash{}{an aircraft is not present \textbackslash{}},
+Bc=\textbackslash{}{the radar does not register an aircraft presence \textbackslash{}}.
+The given probabilities are recorded along the corresponding branches of the tree
+describing the sample space, as shown in Fig. 1.8. Each event of interest correspondsto a leaf of the tree and its probability is equal to the product of the probabilitiesassociated with the branches in a path from the root to the corresponding leaf. Thedesired probabilities of false alarm and missed detection are
+P(false alarm) = P(A
+c∩B)=P(Ac)P(B|Ac)=0.95·0.10 = 0 .095,
+P(missed detection) = P(A∩Bc)=P(A)P(Bc|A)=0.05·0.01 = 0 .0005.
+Extending the preceding example, we have a general rule for calculating
+various probabilities in conjunction with a tree-based sequential description of
+an experiment. In particular:
+(a) We set up the tree so that an event of interest is associated with a leaf.
+Weview the occurrence of the event as a sequence of steps, namely, the
+traversals of the branches along the path from the root to the leaf.
+(b) We record the conditional probabilities associated with the branches of the
+tree.
+(c) We obtain the probability of a leaf by multiplying the probabilities recorded
+along the corresponding path of the tree.
+
+22 Sample Space and Probability Chap. 1
+P(A) = 0.05
+P(Ac) = 0.95P(B | A) = 0.99
+P(Bc| A) = 0.01
+P(B | Ac) = 0.10
+P(Bc| Ac )= 0.90False AlarmMissed
+DetectionAircraft Present
+Aircraft not Present
+Figure 1.8: Sequential description of the sample space for the radar detection
+problem in Example 1.9.
+In mathematical terms, we are dealing with an event Awhich occurs if and
+only if each one of several events A1,...,A nhas occurred, i.e., A=A1∩A2∩
+···∩An.The occurrence of Ais viewed as an occurrence of A1,followed by
+the occurrence of A2,then of A3,etc, and it is visualized as a path on the tree
+withnbranches, corresponding to the events A1,...,A n.The probability of A
+is given by the following rule (see also Fig. 1.9).
+Multiplication Rule
+Assuming that all of the conditioning events have positive probability, we
+have
+P/parenleftbig
+∩n
+i=1Ai/parenrightbig
+=P(A1)P(A2|A1)P(A3|A1∩A2)···P/parenleftbig
+An|∩n−1
+i=1Ai/parenrightbig
+.
+The multiplication rule can be veriﬁed by writing
+P/parenleftbig
+∩n
+i=1Ai/parenrightbig
+=P(A1)P(A1∩A2)
+P(A1)P(A1∩A2∩A3)
+P(A1∩A2)···P/parenleftbig
+∩n
+i=1Ai/parenrightbig
+P/parenleftbig
+∩n−1
+i=1Ai/parenrightbig,
+and by using the deﬁnition of conditional probability to rewrite the right-hand
+side above as
+P(A1)P(A2|A1)P(A3|A1∩A2)···P/parenleftbig
+An|∩n−1
+i=1Ai/parenrightbig
+.
+
+Sec. 1.3 Conditional Probability 23
+...A1A2A3An-1An
+P(A1 ) P(A3 |A1  ∩A2 ) P(A2 |A1 ) P(An |A1  ∩A2 ∩ ...∩An-1)Event A1  ∩A2  ∩A3 Event A1  ∩A2 ∩ ...∩An
+Figure 1.9: Visualization of the total probability theorem. The intersection event
+A=A1∩A2∩···∩Anis associated with a path on the tree of a sequential descrip-
+tion of the experiment. We associate the branches of this path with the eventsA
+1,...,A n,and we record next to the branches the corresponding conditional
+probabilities.
+The ﬁnal node of the path corresponds to the intersection event A,and
+its probability is obtained by multiplying the conditional probabilities recordedalong the branches of the path
+P(A
+1∩A2∩···∩A3)=P(A1)P(A2|A1)···P(An|A1∩A2∩···∩An−1).
+Note that any intermediate node along the path also corresponds to some inter-
+section event and its probability is obtained by multiplying the correspondingconditional probabilities up to that node. For example, the event A
+1∩A2∩A3
+corresponds to the node shown in the ﬁgure, and its probability is
+P(A1∩A2∩A3)=P(A1)P(A2|A1)P(A3|A1∩A2).
+Forthe case of just two events, A1andA2,the multiplication rule is simply the
+deﬁnition of conditional probability.
+Example 1.10. Three cards are drawn from an ordinary 52-card deck without
+replacement (drawn cards are not placed back in the deck). We wish to ﬁnd theprobability that none of the three cards is a heart. We assume that at each step,each one of the remaining cards is equally likely to be picked. By symmetry, thisimplies that every triplet of cards is equally likely to be drawn. A cumbersomeapproach, that we will not use, is to count the number of all card triplets thatdo not include a heart, and divide it with the number of all possible card triplets.Instead, we use a sequential description of the sample space in conjunction with themultiplication rule (cf. Fig. 1.10).
+Deﬁne the events
+A
+i=\textbackslash{}{theith card is not a heart \textbackslash{}},i =1,2,3.
+Wewill calculate P(A1∩A2∩A3), the probability that none of the three cards is
+aheart, using the multiplication rule,
+P(A1∩A2∩A3)=P(A1)P(A2|A1)P(A3|A1∩A2).
+
+24 Sample Space and Probability Chap. 1
+We have
+P(A1)=39
+52,
+since there are 39 cards that are not hearts in the 52-card deck. Given that the
+ﬁrst card is not a heart, we are left with 51 cards, 38 of which are not hearts, and
+P(A2|A1)=38
+51.
+Finally, given that the ﬁrst two cards drawn are not hearts, there are 37 cards which
+are not hearts in the remaining 50-card deck, and
+P(A3|A1∩A2)=37
+50.
+These probabilities are recorded along the corresponding branches of the tree de-
+scribing the sample space, as shown in Fig. 1.10. The desired probability is nowobtained by multiplying the probabilities recorded along the corresponding path ofthe tree:
+P(A
+1∩A2∩A3)=39
+52·38
+51·37
+50.
+Note that once the probabilities are recorded along the tree, the probability
+of several other events can be similarly calculated. For example,
+P(1st is not a heart and 2nd is a heart) =39
+52·13
+51,
+P(1st two are not hearts and 3rd is a heart) =39
+52·38
+51·13
+50.
+Not a Heart
+39/5238/5137/50
+Not a HeartNot a Heart
+HeartHeart
+Heart
+13/5213/5113/50
+Figure 1.10: Sequential description of the sample space of the 3-card selection
+problem in Example 1.10.
+
+Sec. 1.4 Total Probability Theorem and Bayes’ Rule 25
+Example 1.11. Aclass consisting of 4 graduate and 12 undergraduate students
+is randomly divided into 4 groups of 4. What is the probability that each groupincludes a graduate student? We interpret randomly to mean that given the as-signment of some students to certain slots, any of the remaining students is equallylikely to be assigned to any of the remaining slots. We then calculate the desiredprobability using the multiplication rule, based on the sequential description shownin Fig. 1.11. Let us denote the four graduate students by 1, 2, 3, 4, and considerthe events
+A
+1=\textbackslash{}{students 1 and 2 are in diﬀerent groups \textbackslash{}},
+A2=\textbackslash{}{students 1, 2, and 3 are in diﬀerent groups \textbackslash{}},
+A3=\textbackslash{}{students 1, 2, 3, and 4 are in diﬀerent groups \textbackslash{}}.
+Wewill calculate P(A3)using the multiplication rule:
+P(A3)=P(A1∩A2∩A3)=P(A1)P(A2|A1)P(A3|A1∩A2).
+We have
+P(A1)=12
+15,
+since there are 12 student slots in groups other than the one of student 1, and there
+are 15 student slots overall, excluding student 1. Similarly,
+P(A2|A1)=8
+14,
+since there are 8 student slots in groups other than the one of students 1 and 2,
+and there are 14 student slots, excluding students 1 and 2. Also,
+P(A3|A1∩A2)=4
+13,
+since there are 4 student slots in groups other than the one of students 1, 2, and
+3, and there are 13 student slots, excluding students 1, 2, and 3. Thus, the desiredprobability is
+12
+15·8
+14·4
+13,
+and is obtained by multiplying the conditional probabilities along the corresponding
+path of the tree of Fig. 1.11.
+1.4 TOTAL PROBABILITY THEOREM AND BAYES’ RULE
+In this section, we explore some applications of conditional probability. We start
+with the following theorem, which is often useful for computing the probabilitiesof various events, using a “divide-and-conquer” approach.
+
+26 Sample Space and Probability Chap. 1
+Students 1 \textbackslash{}& 2 are
+in Different Groups 
+12/15Students 1, 2, \textbackslash{}& 3 are
+in Different Groups 
+8/14Students 1, 2, 3, \textbackslash{}& 4 are
+in Different Groups 
+4/13
+Figure 1.11: Sequential description of the sample space of the student problem
+in Example 1.11.
+Total Probability Theorem
+LetA1,...,A nbedisjoint events that form a partition of the sample space
+(each possible outcome is included in one and only one of the events A1,...,A n)
+and assume that P(Ai)>0, for all i=1,...,n .Then, for any event B,w e
+have
+P(B)=P(A1∩B)+···+P(An∩B)
+=P(A1)P(B|A1)+···+P(An)P(B|An).
+The theorem is visualized and proved in Fig. 1.12. Intuitively, we are par-
+titioning the sample space into a number of scenarios (events) Ai.Then, the
+probability that Boccurs is a weighted average of its conditional probability
+under each scenario, where each scenario is weighted according to its (uncondi-tional) probability. One of the uses of the theorem is to compute the probabilityof various events Bfor which the conditional probabilities P(B|A
+i)are known or
+easy to derive. The key is to choose appropriately the partition A1,...,A n,and
+this choice is often suggested by the problem structure. Here are some examples.
+Example 1.12. Youenter a chess tournament where your probability of winning
+agame is 0.3 against half the players (call them type 1), 0.4 against a quarter of
+the players (call them type 2), and 0.5 against the remaining quarter of the players(call them type 3). You play a game against a randomly chosen opponent. Whatis the probability of winning?
+LetA
+ibethe event of playing with an opponent of type i.W eh a v e
+P(A1)=0.5,P(A2)=0.25,P(A3)=0.25.
+
+Sec. 1.4 Total Probability Theorem and Bayes’ Rule 27
+A1
+B
+A2 A3A1A1  ∩B
+BA2  ∩B
+A3  ∩BA2
+A3
+Bc
+Figure 1.12: Visualization and veriﬁcation of the total probability theorem. The
+events A1,...,A nform a partition of the sample space, so the event Bcan be
+decomposed into the disjoint union of its intersections Ai∩Bwith the sets Ai,
+i.e.,
+B=(A1∩B)∪···∪(An∩B).
+Using the additivity axiom, it follows that
+P(B)=P(A1∩B)+···+P(An∩B).
+Since, by the deﬁnition of conditional probability, we have
+P(Ai∩B)=P(Ai)P(B|Ai),
+the preceding equality yields
+P(B)=P(A1)P(B|A1)+···+P(An)P(B|An).
+Foranalternative view, consider an equivalent sequential model, as shown
+on the right. The probability of the leaf Ai∩Bis the product P(Ai)P(B|Ai)o f
+the probabilities along the path leading to that leaf. The event Bconsists of the
+three highlighted leaves and P(B)isobtained by adding their probabilities.
+Let also Bbethe event of winning. We have
+P(B|A1)=0.3,P(B|A2)=0.4,P(B|A3)=0.5.
+Thus, by the total probability theorem, the probability of winning is
+P(B)=P(A1)P(B|A1)+P(A2)P(B|A2)+P(A3)P(B|A3)
+=0.5·0.3+0.25·0.4+0.25·0.5
+=0.375.
+Example 1.13. Weroll a fair four-sided die. If the result is 1 or 2, we roll once
+more but otherwise, we stop. What is the probability that the sum total of ourrolls is at least 4?
+
+28 Sample Space and Probability Chap. 1
+LetAibethe event that the result of ﬁrst roll is i,and note that P(Ai)=1/4
+for each i.LetBbethe event that the sum total is at least 4. Given the event A1,
+the sum total will be at least 4 if the second roll results in 3 or 4, which happenswith probability 1/2. Similarly, given the event A
+2,the sum total will be at least
+4ifthe second roll results in 2, 3, or 4, which happens with probability 3/4. Also,
+given the event A3,westop and the sum total remains below 4. Therefore,
+P(B|A1)=1
+2,P(B|A2)=3
+4,P(B|A3)=0,P(B|A4)=1.
+By the total probability theorem,
+P(B)=1
+4·1
+2+1
+4·3
+4+1
+4·0+1
+4·1=9
+16.
+The total probability theorem can be applied repeatedly to calculate proba-
+bilities in experiments that have a sequential character, as shown in the followingexample.
+Example 1.14. Alice is taking a probability class and at the end of each week
+she can be either up-to-date or she may have fallen behind. If she is up-to-date inagiven week, the probability that she will be up-to-date (or behind) in the next
+week is 0.8 (or 0.2, respectively). If she is behind in a given week, the probability
+that she will be up-to-date (or behind) in the next week is 0.6 (or 0.4, respectively).Alice is (by default) up-to-date when she starts the class. What is the probabilitythat she is up-to-date after three weeks?
+LetU
+iandBibethe events that Alice is up-to-date or behind, respectively,
+afteriweeks. According to the total probability theorem, the desired probability
+P(U3)i sgiven by
+P(U3)=P(U2)P(U3|U2)+P(B2)P(U3|B2)=P(U2)·0.8+P(B2)·0.4.
+The probabilities P(U2)andP(B2)can also be calculated using the total probability
+theorem:
+P(U2)=P(U1)P(U2|U1)+P(B1)P(U2|B1)=P(U1)·0.8+P(B1)·0.4,
+P(B2)=P(U1)P(B2|U1)+P(B1)P(B2|B1)=P(U1)·0.2+P(B1)·0.6.
+Finally, since Alice starts her class up-to-date, we have
+P(U1)=0.8,P(B1)=0.2.
+Wecan now combine the preceding three equations to obtain
+P(U2)=0.8·0.8+0.2·0.4=0.72,
+P(B2)=0.8·0.2+0.2·0.6=0.28.
+
+Sec. 1.4 Total Probability Theorem and Bayes’ Rule 29
+and by using the above probabilities in the formula for P(U3):
+P(U3)=0.72·0.8+0.28·0.4=0.688.
+Note that we could have calculated the desired probability P(U3)bycon-
+structing a tree description of the experiment, by calculating the probability ofevery element of U
+3using the multiplication rule on the tree, and by adding. In
+experiments with a sequential character one may often choose between using themultiplication rule or the total probability theorem for calculation of various prob-
+abilities. However, there are cases where the calculation based on the total prob-ability theorem is more convenient. For example, suppose we are interested inthe probability P(U
+20)that Alice is up-to-date after 20 weeks. Calculating this
+probability using the multiplication rule is very cumbersome, because the tree rep-resenting the experiment is 20-stages deep and has 2
+20leaves. On the other hand,
+with a computer, a sequential caclulation using the total probability formulas
+P(Ui+1)=P(Ui)·0.8+P(Bi)·0.4,
+P(Bi+1)=P(Ui)·0.2+P(Bi)·0.6,
+and the initial conditions P(U1)=0.8,P(B1)=0.2isvery simple.
+The total probability theorem is often used in conjunction with the fol-
+lowing celebrated theorem, which relates conditional probabilities of the formP(A|B)with conditional probabilities of the form P(B|A), in which the order
+of the conditioning is reversed.
+Bayes’ Rule
+LetA1,A2,...,A nbedisjoint events that form a partition of the sample
+space, and assume that P(Ai)>0, for all i.Then, for any event Bsuch
+thatP(B)>0, we have
+P(Ai|B)=P(Ai)P(B|Ai)
+P(B)
+=P(Ai)P(B|Ai)
+P(A1)P(B|A1)+···+P(An)P(B|An).
+Toverify Bayes’ rule, note that P(Ai)P(B|Ai)andP(Ai|B)P(B)are
+equal, because they are both equal to P(Ai∩B). This yields the ﬁrst equality.
+The second equality follows from the ﬁrst by using the total probability theoremto rewrite P(B).
+Bayes’ rule is often used for inference .There are a number of “causes”
+that may result in a certain “eﬀect.” We observe the eﬀect, and we wish to infer
+
+30 Sample Space and Probability Chap. 1
+the cause. The events A1,...,A nare associated with the causes and the event B
+represents the eﬀect. The probability P(B|Ai)that the eﬀect will be observed
+when the cause Aiis present amounts to a probabilistic model of the cause-eﬀect
+relation (cf. Fig. 1.13). Given that the eﬀect Bhas been observed, we wish to
+evaluate the (conditional) probability P(Ai|B)that the cause Aiis present.
+A1
+B
+A2 A3Cause 1
+Malignant TumorCause 3
+Other
+Cause 2
+Nonmalignant
+TumorEffect
+Shade ObservedA1A1  ∩BB
+A2  ∩B
+A3  ∩BA2
+A3Bc
+B
+Bc
+BB
+c
+Figure 1.13: An example of the inference context that is implicit in Bayes’
+rule. We observe a shade in a person’s X-ray (this is event B,the “eﬀect”) and
+wewantto estimate the likelihood of three mutually exclusive and collectively
+exhaustive potential causes: cause 1 (event A1)isthat there is a malignant tumor,
+cause 2 (event A2)isthat there is a nonmalignant tumor, and cause 3 (event
+A3)corresponds to reasons other than a tumor. We assume that we know the
+probabilities P(Ai)andP(B|Ai),i=1,2,3. Given that we see a shade (event
+Boccurs), Bayes’ rule gives the conditional probabilities of the various causes as
+P(Ai|B)=P(Ai)P(B|Ai)
+P(A1)P(B|A1)+P(A2)P(B|A2)+P(A3)P(B|A3),i=1,2,3.
+Foranalternative view, consider an equivalent sequential model, as shown
+on the right. The probability P(A1|B)ofamalignant tumor is the probability
+of the ﬁrst highlighted leaf, which is P(A1∩B), divided by the total probability
+of the highlighted leaves, which is P(B).
+Example 1.15. Let us return to the radar detection problem of Example 1.9 and
+Fig. 1.8. Let
+A=\textbackslash{}{an aircraft is present \textbackslash{}},
+B=\textbackslash{}{the radar registers an aircraft presence \textbackslash{}}.
+Weare given that
+P(A)=0.05,P(B|A)=0.99,P(B|Ac)=0.1.
+
+Sec. 1.5 Independence 31
+Applying Bayes’ rule, with A1=AandA2=Ac,weobtain
+P(aircraft present |radar registers) = P(A|B)
+=P(A)P(B|A)
+P(B)
+=P(A)P(B|A)
+P(A)P(B|A)+P(Ac)P(B|Ac)
+=0.05·0.99
+0.05·0.99+0.95·0.1
+≈0.3426.
+Example 1.16. Let us return to the chess problem of Example 1.12. Here Aiis
+the event of getting an opponent of type i,and
+P(A1)=0.5,P(A2)=0.25,P(A3)=0.25.
+Also, Bis the event of winning, and
+P(B|A1)=0.3,P(B|A2)=0.4,P(B|A3)=0.5.
+Suppose that you win. What is the probability P(A1|B)that you had an opponent
+of type 1?
+Using Bayes’ rule, we have
+P(A1|B)=P(A1)P(B|A1)
+P(A1)P(B|A1)+P(A2)P(B|A2)+P(A3)P(B|A3)
+=0.5·0.3
+0.5·0.3+0.25·0.4+0.25·0.5
+=0.4.
+1.5 INDEPENDENCE
+Wehave introduced the conditional probability P(A|B)tocapture the partial
+information that event Bprovides about event A.Aninteresting and important
+special case arises when the occurrence of Bprovides no information and does
+not alter the probability that Ahas occurred, i.e.,
+P(A|B)=P(A).
+
+32 Sample Space and Probability Chap. 1
+When the above equality holds, we say that Aisindependent ofB.Note that
+bythe deﬁnition P(A|B)=P(A∩B)/P(B), this is equivalent to
+P(A∩B)=P(A)P(B).
+Weadopt this latter relation as the deﬁnition of independence because it can be
+used even if P(B)=0,inwhich case P(A|B)isundeﬁned. The symmetry of
+this relation also implies that independence is a symmetric property; that is, ifAis independent of B,thenBis independent of A,and we can unambiguously
+say that AandBareindependent events .
+Independence is often easy to grasp intuitively. For example, if the occur-
+rence of two events is governed by distinct and noninteracting physical processes,such events will turn out to be independent. On the other hand, independenceis not easily visualized in terms of the sample space. A common ﬁrst thoughtis that two events are independent if they are disjoint, but in fact the oppositeis true: two disjoint events AandBwithP(A)>0andP(B)>0are never
+independent, since their intersection A∩Bis empty and has probability 0.
+Example 1.17. Consider an experiment involving two successive rolls of a 4-sided
+die in which all 16 possible outcomes are equally likely and have probability 1/16.
+(a) Are the events
+Ai=\textbackslash{}{1st roll results in i\textbackslash{}},B j=\textbackslash{}{2nd roll results in j\textbackslash{}},
+independent? We have
+P(A∩B)=P/parenleftbig
+the result of the two rolls is ( i, j)/parenrightbig
+=1
+16,
+P(Ai)=number of elements of Ai
+total number of possible outcomes=4
+16,
+P(Bj)=number of elements of Bj
+total number of possible outcomes=4
+16.
+Weobserve that P(Ai∩Bj)=P(Ai)P(Bj), and the independence of Aiand
+Bjis veriﬁed. Thus, our choice of the discrete uniform probability law (which
+might have seemed arbitrary) models the independence of the two rolls.
+(b) Are the events
+A=\textbackslash{}{1st roll is a 1 \textbackslash{}},B =\textbackslash{}{sum of the two rolls is a 5 \textbackslash{}},
+independent? The answer here is not quite obvious. We have
+P(A∩B)=P/parenleftbig
+the result of the two rolls is (1,4)/parenrightbig
+=1
+16,
+and also
+P(A)=number of elements of A
+total number of possible outcomes=4
+16.
+
+Sec. 1.5 Independence 33
+The event Bconsists of the outcomes (1,4), (2,3), (3,2), and (4,1), and
+P(B)=number of elements of B
+total number of possible outcomes=4
+16.
+Thus, we see that P(A∩B)=P(A)P(B), and the events AandBare
+independent.
+(c) Are the events
+A=\textbackslash{}{maximum of the two rolls is 2 \textbackslash{}},B =\textbackslash{}{minimum of the two rolls is 2 \textbackslash{}},
+independent? Intuitively, the answer is “no” because the minimum of the two
+rolls tells us something about the maximum. For example, if the minimum is2, the maximum cannot be 1. More precisely, to verify that AandBare not
+independent, we calculate
+P(A∩B)=P/parenleftbig
+the result of the two rolls is (2,2)/parenrightbig
+=1
+16,
+and also
+P(A)=number of elements of A
+total number of possible outcomes=3
+16,
+P(B)=number of elements of B
+total number of possible outcomes=5
+16.
+We have P(A)P(B)=1 5 /(16)2,sothatP(A∩B)/negationslash=P(A)P(B), and Aand
+Bare not independent.
+Conditional Independence
+Wenoted earlier that the conditional probabilities of events, conditioned on
+aparticular event, form a legitimate probability law. We can thus talk about
+independence of various events with respect to this conditional law. In particular,given an event C,the events AandBare called conditionally independent
+if
+P(A∩B|C)=P(A|C)P(B|C).
+The deﬁnition of the conditional probability and the multiplication rule yield
+P(A∩B|C)=P(A∩B∩C)
+P(C)
+=P(C)P(B|C)P(A|B∩C)
+P(C)
+=P(B|C)P(A|B∩C).
+
+34 Sample Space and Probability Chap. 1
+After canceling the factor P(B|C), assumed nonzero, we see that conditional
+independence is the same as the condition
+P(A|B∩C)=P(A|C).
+In words, this relation states that if Cis known to have occurred, the additional
+knowledge that Balso occurred does not change the probability of A.
+Interestingly, independence of two events AandBwith respect to the
+unconditional probability law, does not imply conditional independence, andvice versa, as illustrated by the next two examples.
+Example 1.18. Consider two independent fair coin tosses, in which all four
+possible outcomes are equally likely. Let
+H1=\textbackslash{}{1st toss is a head \textbackslash{}},
+H2=\textbackslash{}{2nd toss is a head \textbackslash{}},
+D=\textbackslash{}{the two tosses have diﬀerent results \textbackslash{}}.
+The events H1andH2are (unconditionally) independent. But
+P(H1|D)=1
+2,P(H2|D)=1
+2,P(H1∩H2|D)=0,
+so that P(H1∩H2|D)/negationslash=P(H1|D)P(H2|D), and H1,H2are not conditionally
+independent.
+Example 1.19. There are two coins, a blue and a red one. We choose one of
+the two at random, each being chosen with probability 1/2, and proceed with twoindependent tosses. The coins are biased: with the blue coin, the probability ofheads in any given toss is 0.99, whereas for the red coin it is 0.01.
+LetBbethe event that the blue coin was selected. Let also H
+ibethe event
+that the ith toss resulted in heads. Given the choice of a coin, the events H1and
+H2are independent, because of our assumption of independent tosses. Thus,
+P(H1∩H2|B)=P(H1|B)P(H2|B)=0.99·0.99.
+On the other hand, the events H1andH2are not independent. Intuitively, if we
+are told that the ﬁrst toss resulted in heads, this leads us to suspect that the bluecoin was selected, in which case, we expect the second toss to also result in heads.Mathematically, we use the total probability theorem to obtain
+P(H
+1)=P(B)P(H1|B)+P(Bc)P(H1|Bc)=1
+2·0.99 +1
+2·0.01 =1
+2,
+
+Sec. 1.5 Independence 35
+as should be expected from symmetry considerations. Similarly, we have P(H2)=
+1/2. Now notice that
+P(H1∩H2)=P(B)P(H1∩H2|B)+P(Bc)P(H1∩H2|Bc)
+=1
+2·0.99·0.99 +1
+2·0.01·0.01≈1
+2.
+Thus,P(H1∩H2)/negationslash=P(H1)P(H2), and the events H1andH2are dependent, even
+though they are conditionally independent given B.
+As mentioned earlier, if AandBare independent, the occurrence of Bdoes
+not provide any new information on the probability of Aoccurring. It is then
+intuitive that the non-occurrence of Bshould also provide no information on the
+probability of A.Indeed, it can be veriﬁed that if AandBare independent, the
+same holds true for AandBc(see the theoretical problems).
+Wenow summarize.
+Independence
+•Two events AandBare said to independent if
+P(A∩B)=P(A)P(B).
+If in addition, P(B)>0, independence is equivalent to the condition
+P(A|B)=P(A).
+•IfAandBare independent, so are AandBc.
+•Two events AandBare said to be conditionally independent, given
+another event CwithP(C)>0, if
+P(A∩B|C)=P(A|C)P(B|C).
+If in addition, P(B∩C)>0, conditional independence is equivalent
+to the condition
+P(A|B∩C)=P(A|C).
+•Independence does not imply conditional independence, and vice versa.
+Independence of a Collection of Events
+The deﬁnition of independence can be extended to multiple events.
+
+36 Sample Space and Probability Chap. 1
+Deﬁnition of Independence of Several Events
+Wesay that the events A1,A2,...,A nareindependent if
+P/parenleftBigg/intersectiondisplay
+i∈SAi/parenrightBigg
+=/productdisplay
+i∈SP(Ai),for every subset Sof\textbackslash{}{1,2,...,n \textbackslash{}}.
+If we have a collection of three events, A1,A2,andA3,independence
+amounts to satisfying the four conditions
+P(A1∩A2)=P(A1)P(A2),
+P(A1∩A3)=P(A1)P(A3),
+P(A2∩A3)=P(A2)P(A3),
+P(A1∩A2∩A3)=P(A1)P(A2)P(A3).
+The ﬁrst three conditions simply assert that any two events are independent,
+aproperty known as pairwise independence .But the fourth condition is
+also important and does not follow from the ﬁrst three. Conversely, the fourthcondition does not imply the ﬁrst three; see the two examples that follow.
+Example 1.20. Pairwise independence does not imply independence.
+Consider two independent fair coin tosses, and the following events:
+H1=\textbackslash{}{1st toss is a head \textbackslash{}},
+H2=\textbackslash{}{2nd toss is a head \textbackslash{}},
+D=\textbackslash{}{the two tosses have diﬀerent results \textbackslash{}}.
+The events H1andH2are independent, by deﬁnition. To see that H1andDare
+independent, we note that
+P(D|H1)=P(H1∩D)
+P(H1)=1/4
+1/2=1
+2=P(D).
+Similarly, H2andDare independent. On the other hand, we have
+P(H1∩H2∩D)=0 /negationslash=1
+2·1
+2·1
+2=P(H1)P(H2)P(D),
+and these three events are not independent.
+Example 1.21. The equality P (A1∩A2∩A3)=P(A1)P(A2)P(A3)is not
+enough for independence. Consider two independent rolls of a fair die, and
+
+Sec. 1.5 Independence 37
+the following events:
+A=\textbackslash{}{1st roll is 1, 2, or 3 \textbackslash{}},
+B=\textbackslash{}{1st roll is 3, 4, or 5 \textbackslash{}},
+C=\textbackslash{}{the sum of the two rolls is 9 \textbackslash{}}.
+We have
+P(A∩B)=1
+6/negationslash=1
+2·1
+2=P(A)P(B),
+P(A∩C)=1
+36/negationslash=1
+2·4
+36=P(A)P(C),
+P(B∩C)=1
+12/negationslash=1
+2·4
+36=P(B)P(C).
+Thus the three events A,B,andCare not independent, and indeed no two of these
+events are independent. On the other hand, we have
+P(A∩B∩C)=1
+36=1
+2·1
+2·4
+36=P(A)P(B)P(C).
+The intuition behind the independence of a collection of events is anal-
+ogous to the case of two events. Independence means that the occurrence ornon-occurrence of any number of the events from that collection carries no
+information on the remaining events or their complements. For example, if theevents A
+1,A2,A3,A4are independent, one obtains relations such as
+P(A1∪A2|A3∩A4)=P(A1∪A2)
+or
+P(A1∪Ac
+2|Ac
+3∩A4)=P(A1∪Ac
+2);
+see the theoretical problems.
+ReliabilityIn probabilistic models of complex systems involving several components, it is
+often convenient to assume that the components behave “independently” of eachother. This typically simpliﬁes the calculations and the analysis, as illustratedin the following example.
+Example 1.22. Network connectivity. Acomputer network connects two
+nodes A and B through intermediate nodes C, D, E, F, as shown in Fig. 1.14(a).Forevery pair of directly connected nodes, say iandj,there is a given probability
+p
+ijthat the link from itojis up. We assume that link failures are independent
+
+38 Sample Space and Probability Chap. 1
+A BC
+FE
+D0.90.8
+0.950.9
+0.85
+0.75
+(a)
+(b)Series Connection Parallel Connection12 31
+2
+30.95
+Figure 1.14: (a) Network for Example 1.22. The number next to each link
+(i, j)indicates the probability that the link is up. (b) Series and parallel
+connections of three components in a reliability problem.
+of each other. What is the probability that there is a path connecting A and B in
+which all links are up?
+This is a typical problem of assessing the reliability of a system consisting of
+components that can fail independently. Such a system can often be divided intosubsystems, where each subsystem consists in turn of several components that areconnected either in series or inparallel ;see Fig. 1.14(b).
+Let a subsystem consist of components 1 ,2,...,m ,and let p
+ibethe prob-
+ability that component iis up (“succeeds”). Then, a series subsystem succeeds
+ifallof its components are up, so its probability of success is the product of the
+probabilities of success of the corresponding components, i.e.,
+P(series subsystem succeeds) = p1p2···pm.
+Aparallel subsystem succeeds if any one of its components succeeds, so its prob-
+ability of failure is the product of the probabilities of failure of the correspondingcomponents, i.e.,
+P(parallel subsystem succeeds) = 1 −P(parallel subsystem fails)
+=1−(1−p
+1)(1−p2)···(1−pm).
+Returning now to the network of Fig. 1.14(a), we can calculate the probabil-
+ity of success (a path from A to B is available) sequentially, using the precedingformulas, and starting from the end. Let us use the notation X→Yto denote the
+
+Sec. 1.5 Independence 39
+event that there is a (possibly indirect) connection from node Xto node Y.Then,
+P(C→B)=1 −/parenleftbig
+1−P(C→EandE→B)/parenrightbig/parenleftbig
+1−P(C→FandF→B)/parenrightbig
+=1−(1−pCEpEB)(1−pCFpFB)
+=1−(1−0.8·0.9)(1−0.85·0.95)
+=0.946,
+P(A→CandC→B)=P(A→C)P(C→B)=0.9·0.946 = 0 .851,
+P(A→DandD→B)=P(A→D)P(D→B)=0.75·0.95 = 0 .712,
+and ﬁnally we obtain the desired probability
+P(A→B)=1 −/parenleftbig
+1−P(A→CandC→B)/parenrightbig/parenleftbig
+1−P(A→DandD→B)/parenrightbig
+=1−(1−0.851)(1 −0.712)
+=0.957.
+Independent Trials and the Binomial Probabilities
+If an experiment involves a sequence of independent but identical stages, we say
+that we have a sequence of independent trials .Inthe special case where there
+are only two possible results at each stage, we say that we have a sequence ofindependent Bernoulli trials .The two possible results can be anything, e.g.,
+“it rains” or “it doesn’t rain,” but we will often think in terms of coin tosses andrefer to the two results as “heads” ( H)and “tails” ( T).
+Consider an experiment that consists of nindependent tosses of a biased
+coin, in which the probability of “heads” is p,where pis some number between
+0and 1. In this context, independence means that the events A
+1,A2,...,A nare
+independent, where Ai=\textbackslash{}{ith toss is a head \textbackslash{}}.
+Wecan visualize independent Bernoulli trials by means of a sequential
+description, as shown in Fig. 1.15 for the case where n=3.The conditional
+probability of any toss being a head, conditioned on the results of any preced-ing tosses is p,because of independence. Thus, by multiplying the conditional
+probabilities along the corresponding path of the tree, we see that any particularoutcome (3-long sequence of heads and tails) that involves kheads and 3 −k
+tails has probability p
+k(1−p)3−k.This formula extends to the case of a general
+number nof tosses. We obtain that the probability of any particular n-long
+sequence that contains kheads and n−ktails is pk(1−p)n−k,for all kfrom 0
+ton.
+Let us now consider the probability
+p(k)=P(kheads come up in an n-toss sequence) ,
+
+40 Sample Space and Probability Chap. 1
+ppp
+pp
+p
+p1 - p
+1 - p
+1 - p
+1 - p
+1 - p1 - p
+1 - pHHH
+HHT
+HTH
+HTT
+THH
+THT
+TTH
+TTTProb = p2(1 - p)Prob = p3
+Prob = (1 - p)3Prob = p(1 - p)2
+Prob = p2(1 - p)Prob = p2(1 - p)
+Prob = p(1 - p)2Prob = p(1 - p)2HH
+HT
+TH
+TTH
+T
+Figure 1.15: Sequential description of the sample space of an experiment involv-
+ing three independent tosses of a biased coin. Along the branches of the tree,werecord the corresponding conditional probabilities, and by the multiplication
+rule, the probability of obtaining a particular 3-toss sequence is calculated bymultiplying the probabilities recorded along the corresponding path of the tree.
+which will play an important role later. We showed above that the probability
+of any given sequence that contains kheads is pk(1−p)n−k,s ow eh a v e
+p(k)=/parenleftbiggn
+k/parenrightbigg
+pk(1−p)n−k,
+where
+/parenleftbiggn
+k/parenrightbigg
+=number of distinct n-toss sequences that contain kheads.
+The numbers/parenleftbign
+k/parenrightbig
+(called “ nchoosek”) are known as the binomial coeﬃcients ,
+while the probabilities p(k)are known as the binomial probabilities .Using a
+counting argument, to be given in Section 1.6, one ﬁnds that
+/parenleftbiggn
+k/parenrightbigg
+=n!
+k!(n−k)!,k =0,1,...,n ,
+where for any positive integer iwe have
+i!=1 ·2···(i−1)·i,
+
+Sec. 1.6 Counting∗41
+and, by convention, 0! = 1. An alternative veriﬁcation is sketched in the theo-
+retical problems. Note that the binomial probabilities p(k)must add to 1, thus
+showing the binomial formula
+n/summationdisplay
+k=0/parenleftbiggn
+k/parenrightbigg
+pk(1−p)n−k=1.
+Example 1.23. Grade of service. An internet service provider has installed c
+modems to serve the needs of a population of ncustomers. It is estimated that at a
+given time, each customer will need a connection with probability p,independently
+of the others. What is the probability that there are more customers needing aconnection than there are modems?
+Here we are interested in the probability that more than ccustomers simul-
+taneously need a connection. It is equal to
+n/summationdisplay
+k=c+1p(k),
+where
+p(k)=/parenleftbigg
+n
+k/parenrightbigg
+pk(1−p)n−k
+are the binomial probabilities.
+This example is typical of problems of sizing the capacity of a facility to
+serve the needs of a homogeneous population, consisting of independently actingcustomers. The problem is to select the size cto achieve a certain threshold prob-
+ability (sometimes called grade of service )that no user is left unserved.
+1.6 COUNTING∗
+The calculation of probabilities often involves counting of the number of out-
+comes in various events. We have already seen two contexts where such countingarises.
+(a) When the sample space Ω has a ﬁnite number of equally likely outcomes,
+so that the discrete uniform probability law applies. Then, the probabilityof any event Ais given by
+P(A)=Number of elements of A
+Number of elements of Ω,
+and involves counting the elements of Aand of Ω.
+(b) When we want to calculate the probability of an event Awith a ﬁnite
+number of equally likely outcomes, each of which has an already known
+probability p.Then the probability of Ais given by
+P(A)=p·(Number of elements of A),
+
+42 Sample Space and Probability Chap. 1
+and involves counting of the number of elements of A.Anexample of this
+typeis the calculation of the probability of kheads in ncoin tosses (the
+binomial probabilities). We saw there that the probability of each distinctsequence involving kheads is easily obtained, but the calculation of the
+number of all such sequences is somewhat intricate, as will be seen shortly.
+While counting is in principle straightforward, it is frequently challenging;
+the art of counting constitutes a large portion of a ﬁeld known as combinatorics .
+In this section, we present the basic principle of counting and apply it to a numberof situations that are often encountered in probabilistic models.
+The Counting PrincipleThe counting principle is based on a divide-and-conquer approach, whereby the
+counting is broken down into stages through the use of a tree. For example,consider an experiment that consists of two consecutive stages. The possibleresults of the ﬁrst stage are a
+1,a2,...,a m;the possible results of the second
+stage are b1,b2,...,b n.Then, the possible results of the two-stage experiment
+are all possible ordered pairs ( ai,bj),i=1,...,m ,j=1,...,n .Note that the
+number of such ordered pairs is equal to mn.This observation can be generalized
+as follows (see also Fig. 1.16).
+Leaves. . . . . . 
+. . . . . . 
+. . . . . . . . . . 
+Stage 1 Stage 2 Stage 3 Stage 4n1
+Choicesn2
+Choicesn3
+Choicesn4
+Choices
+Figure 1.16: Illustration of the basic counting principle. The counting is carried
+out in rstages ( r=4in the ﬁgure). The ﬁrst stage has n1possible results. For
+every possible result of the ﬁrst i−1stages, there are nipossible results at the
+ith stage. The number of leaves is n1n2···nr.This is the desired count.
+
+Sec. 1.6 Counting∗43
+The Counting Principle
+Consider a process that consists of rstages. Suppose that:
+(a) There are n1possible results for the ﬁrst stage.
+(b) For every possible result of the ﬁrst stage, there are n2possible results
+at the second stage.
+(c) More generally, for all possible results of the ﬁrst i−1stages, there
+arenipossible results at the ith stage.
+Then, the total number of possible results of the r-stage process is
+n1·n2···nr.
+Example 1.24. The number of telephone numbers. Atelephone number
+is a 7-digit sequence, but the ﬁrst digit has to be diﬀerent from 0 or 1. How manydistinct telephone numbers are there? We can visualize the choice of a sequenceas a sequential process, where we select one digit at a time. We have a total of 7stages, and a choice of one out of 10 elements at each stage, except for the ﬁrststage where we only have 8 choices. Therefore, the answer is
+8·10·10···10
+/bracehtipupleft/bracehtipdownright/bracehtipdownleft/bracehtipupright
+6times=8·106.
+Example 1.25. The number of subsets of an n-element set. Consider an
+n-element set \textbackslash{}{s1,s2,...,s n\textbackslash{}}.Howmany subsets does it have (including itself and
+the empty set)? We can visualize the choice of a subset as a sequential processwhere we examine one element at a time and decide whether to include it in the setor not. We have a total of nstages, and a binary choice at each stage. Therefore
+the number of subsets is
+2·2···2
+/bracehtipupleft/bracehtipdownright/bracehtipdownleft/bracehtipupright
+ntimes=2n.
+It should be noted that the Counting Principle remains valid even if each
+ﬁrst-stage result leads to a diﬀerent set of potential second-stage results, etc. Theonly requirement is that the number of possible second-stage results is constant,regardless of the ﬁrst-stage result. This observation is used in the sequel.
+In what follows, we will focus primarily on two types of counting arguments
+that involve the selection of kobjects out of a collection of nobjects. If the order
+of selection matters, the selection is called a permutation ,and otherwise, it is
+
+44 Sample Space and Probability Chap. 1
+called a combination .Wewill then discuss a more general type of counting,
+involving a partition of a collection of nobjects into multiple subsets.
+k-permutations
+Westart with ndistinct objects, and let kbesome positive integer, with k≤n.
+Wewish to count the number of diﬀerent ways that we can pick kout of these
+nobjects and arrange them in a sequence, i.e., the number of distinct k-object
+sequences. We can choose any of the nobjects to be the ﬁrst one. Having chosen
+the ﬁrst, there are only n−1possible choices for the second; given the choice of
+the ﬁrst two, there only remain n−2available objects for the third stage, etc.
+When we are ready to select the last (the kth) object, we have already chosen
+k−1objects, which leaves us with n−(k−1) choices for the last one. By the
+Counting Principle, the number of possible sequences, called k-permutations ,
+is
+n(n−1)···(n−k+1 )=n(n−1)···(n−k+1)(n−k)···2·1
+(n−k)···2·1
+=n!
+(n−k)!.
+In the special case where k=n,the number of possible sequences, simply called
+permutations ,i s
+n·(n−1)·(n−2)···2·1=n!.
+(Letk=nin the formula for the number of k-permutations, and recall the
+convention 0! = 1.)
+Example 1.26. Let us count the number of words that consist of four distinct
+letters. This is the problem of counting the number of 4-permutations of the 26letters in the alphabet. The desired number is
+n!
+(n−k)!=26!
+22!=2 6 ·25·24·23 = 358 ,800.
+The count for permutations can be combined with the Counting Principle
+to solve more complicated counting problems.
+Example 1.27. You have n1classical music CDs, n2rock music CDs, and n3
+country music CDs. In how many diﬀerent ways can you arrange them so that the
+CDs of the same type are contiguous?
+Webreak down the problem in two stages, where we ﬁrst select the order of
+the CD types, and then the order of the CDs of each type. There are 3! ordered se-quences of the types of CDs (such as classical/rock/country, rock/country/classical,etc), and there are n
+1!(orn2!, orn3!) permutations of the classical (or rock, or
+
+Sec. 1.6 Counting∗45
+country, respectively) CDs. Thus for each of the 3! CD type sequences, there are
+n1!n2!n3!arrangements of CDs, and the desired total number is 3! n1!n2!n3!.
+Combinations
+There are npeople and we are interested in forming a committee of k.H o w
+many diﬀerent committees are there? More abstractly, this is the same as theproblem of counting the number of k-element subsets of a given n-element set.
+Notice that forming a combination is diﬀerent than forming a k-permutation,
+because in a combination there is no ordering of the selected elements .
+Thus for example, whereas the 2-permutations of the letters A, B, C, and D are
+AB, AC, AD, BA, BC, BD, CA, CB, CD, DA, DB, DC ,
+the combinations of two out four of these letters are
+AB, AC, AD, BC, BD, CD .
+There is a close connection between the number of combinations and the
+binomial coeﬃcient that was introduced in Section 1.5. To see this note thatspecifying an n-toss sequence with kheads is the same as picking kelements
+(those that correspond to heads) out of the n-element set of tosses. Thus, the
+number of combinations is the same as the binomial coeﬃcient/parenleftbig
+n
+k/parenrightbig
+introduced
+in Section 1.5.
+Tocount the number of combinations, note that selecting a k-permutation
+is the same as ﬁrst selecting a combination of kitems and then ordering them.
+Since there are k!waysofordering the kselected items, we see that the number
+ofk-permutations is equal to the number of combinations times k!. Hence, the
+number of possible combinations, is given by
+/parenleftbiggn
+k/parenrightbigg
+=n!
+k!(n−k)!.
+Example 1.28. The number of combinations of two out of the four letters A, B,
+C, and D is found by letting n=4andk=2 .I ti s
+/parenleftbigg
+4
+2/parenrightbigg
+=4!
+2!2!=6,
+consistently with the listing given earlier.
+It is worth observing that counting arguments sometimes lead to formulas
+that are rather diﬃcult to derive algebraically. One example is the binomial
+formulan/summationdisplay
+k=0/parenleftbiggn
+k/parenrightbigg
+pk(1−p)n−k=1
+
+46 Sample Space and Probability Chap. 1
+discussed in Section 1.5. Here is another example. Since/parenleftbign
+k/parenrightbig
+is the number of
+k-element subsets of a given n-element subset, the sum over kof/parenleftbign
+k/parenrightbig
+counts the
+number of subsets of all possible cardinalities. It is therefore equal to the number
+of all subsets of an n-element set, which is 2n,and we obtain
+n/summationdisplay
+k=0/parenleftbiggn
+k/parenrightbigg
+=2n.
+Partitions
+Recall that a combination is a choice of kelements out of an n-element set
+without regard to order. This is the same as partitioning the set in two: onepart contains kelements and the other contains the remaining n−k.W e n o w
+generalize by considering partitions in more than two subsets.
+We have ndistinct objects and we are given nonnegative integers n
+1,n2,...,
+nr,whose sum is equal to n.Thenitems are to be divided into rdisjoint groups,
+with the ith group containing exactly niitems. Let us count in how many ways
+this can be done.
+Weform the groups one at a time. We have/parenleftbign
+n1/parenrightbig
+ways of forming the ﬁrst
+group. Having formed the ﬁrst group, we are left with n−n1objects. We need
+to choose n2of them in order to form the second group, and we have/parenleftbign−n1
+n2/parenrightbig
+choices, etc. Using the Counting Principle for this r-stage process, the total
+number of choices is
+/parenleftbiggn
+n1/parenrightbigg/parenleftbiggn−n1
+n2/parenrightbigg/parenleftbiggn−n1−n2
+n3/parenrightbigg
+···/parenleftbiggn−n1−···− nr−1
+nr/parenrightbigg
+,
+which is equal to
+n!
+n1!(n−n1)!(n−n1)!
+n2!(n−n1−n2)!···(n−n1−···− nr−1)!
+(n−n1−···− nr−1−nr)!nr!.
+Wenote that several terms cancel and we are left with
+n!
+n1!n2!···nr!.
+This is called the multinomial coeﬃcient and is usually denoted by
+/parenleftbiggn
+n1,n2,...,n r/parenrightbigg
+.
+Example 1.29. Anagrams. How many diﬀerent letter sequences can be obtained
+byrearranging the letters in the word TATTOO? There are six positions to be ﬁlled
+
+Sec. 1.6 Counting∗47
+bythe available letters. Each rearrangement corresponds to a partition of the set of
+the six positions into a group of size 3 (the positions that get the letter T), a groupof size 1 (the position that gets the letter A), and a group of size 2 (the positionsthat get the letter O). Thus, the desired number is
+6!
+1!2!3!=1·2·3·4·5·6
+1·1·2·1·2·3=6 0.
+It is instructive to rederive this answer using an alternative argument. (This
+argument can also be used to rederive the multinomial coeﬃcient formula; seethe theoretical problems.) Let us rewrite TATTOO in the form T
+1AT2T3O1O2
+pretending for a moment that we are dealing with 6 distinguishable objects. These6objects can be rearranged in 6! diﬀerent ways. However, any of the 3! possible
+permutations of T
+1,T1,and T 3,aswell as any of the 2! possible permutations of
+O1and O 2,lead to the same word. Thus, when the subscripts are removed, there
+are only 6! /(3!2!) diﬀerent words.
+Example 1.30. Aclass consisting of 4 graduate and 12 undergraduate students
+is randomly divided into four groups of 4. What is the probability that each groupincludes a graduate student? This is the same as Example 1.11 in Section 1.3, butwewill now obtain the answer using a counting argument.
+Weﬁrst determine the nature of the sample space. A typical outcome is a
+particular way of partitioning the 16 students into four groups of 4. We take theterm “randomly” to mean that every possible partition is equally likely, so that theprobability question can be reduced to one of counting.
+According to our earlier discussion, there are
+/parenleftbigg
+16
+4,4,4,4/parenrightbigg
+=16!
+4!4!4!4!
+diﬀerent partitions, and this is the size of the sample space.
+Let us now focus on the event that each group contains a graduate student.
+Generating an outcome with this property can be accomplished in two stages:
+(a) Take the four graduate students and distribute them to the four groups; there
+are four choices for the group of the ﬁrst graduate student, three choices forthe second, two for the third. Thus, there is a total of 4! choices for this stage.
+(b) Take the remaining 12 undergraduate students and distribute them to the
+four groups (3 students in each). This can be done in
+/parenleftbigg
+12
+3,3,3,3/parenrightbigg
+=12!
+3!3!3!3!
+diﬀerent ways.
+By the Counting Principle, the event of interest can materialize in
+4!12!
+3!3!3!3!
+
+48 Sample Space and Probability Chap. 1
+diﬀerent ways. The probability of this event is
+4!12!
+3!3!3!3!
+16!
+4!4!4!4!.
+After some cancellations, we can see that this is the same as the answer 12 ·8·
+4/(15·14·13) obtained in Example 1.11.
+Here is a summary of all the counting results we have developed.
+Summary of Counting Results
+•Permutations of nobjects: n!
+•k-permutations of nobjects: n!/(n−k)!
+•Combinations of kout of nobjects:/parenleftbiggn
+k/parenrightbigg
+=n!
+k!(n−k)!
+•Partitions of nobjects into rgroups with the ith group having ni
+objects:/parenleftbiggn
+n1,n2,...,n r/parenrightbigg
+=n!
+n1!n2!···nr!.
+1.7 SUMMARY AND DISCUSSION
+Aprobability problem can usually be broken down into a few basic steps:
+1. The description of the sample space, that is, the set of possible outcomes
+of a given experiment.
+2. The (possibly indirect) speciﬁcation of the probability law (the probability
+of each event).
+3. The calculation of probabilities and conditional probabilities of various
+events of interest.
+The probabilities of events must satisfy the nonnegativity, additivity, and nor-
+malization axioms. In the important special case where the set of possible out-comes is ﬁnite, one can just specify the probability of each outcome and obtainthe probability of any event by adding the probabilities of the elements of theevent.
+Conditional probabilities can be viewed as probability laws on the same
+sample space. We can also view the conditioning event as a new universe, be-
+
+Sec. 1.7 Summary and Discussion 49
+cause only outcomes contained in the conditioning event can have positive condi-
+tional probability. Conditional probabilities are derived from the (unconditional)probability law using the deﬁnition P(A|B)=P(A∩B)/P(B). However, the
+reverse process is often convenient, that is, ﬁrst specify some conditional proba-bilities that are natural for the real situation that we wish to model, and thenuse them to derive the (unconditional) probability law. Two important tools inthis context are the multiplication rule and the total probability theorem.
+Wehave illustrated through examples three methods of specifying proba-
+bility laws in probabilistic models:
+(1) The counting method .This method applies to the case where the num-
+berofpossible outcomes is ﬁnite, and all outcomes are equally likely. To
+calculate the probability of an event, we count the number of elements inthe event and divide by the number of elements of the sample space.
+(2) The sequential method .This method applies when the experiment has a
+sequential character, and suitable conditional probabilities are speciﬁed orcalculated along the branches of the corresponding tree (perhaps using thecounting method). The probabilities of various events are then obtainedbymultiplying conditional probabilities along the corresponding paths of
+the tree, using the multiplication rule.
+(3) The divide-and-conquer method .Here, the probabilities P(B)ofvari-
+ous events Bare obtained from conditional probabilities P(B|A
+i), where
+theAiare suitable events that form a partition of the sample space and
+have known probabilities P(Ai). The probabilities P(B)are then obtained
+byusing the total probability theorem.
+Finally, we have focused on a few side topics that reinforce our main themes.
+Wehave discussed the use of Bayes’ rule in inference, which is an important
+application context. We have also discussed some basic principles of countingand combinatorics, which are helpful in applying the counting method. -->
