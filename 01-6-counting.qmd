@@ -1,0 +1,195 @@
+---
+format:
+    revealjs:
+        css: style.css
+        auto-stretch: false
+self-contained: true
+callout-icon: false
+callout-appearance: simple
+---
+
+# 1.6 Counting
+
+## Context
+
+Probability calculations often involve counting how many
+outcomes are in an event of interest.
+
+While counting *seems* straightforward, it is often difficult in practice
+and involves learning about the area of **combinatorics**.
+
+# The Counting Principle
+
+## Counting Strategy
+
+The counting principle is based on a divide-and-conquer approach in which the process is broken down into stages through the use of a tree.
+
+E.g., an experiment might consist of two stages.
+
+- The possible outcomes of stage 1 are $a_1, \ldots, a_m$.
+- The possible outcomes of stage 2 are $b_1, \ldots, b_n$.
+
+The possible result of the experiment is the set of all possible **ordered** pairs $(a_i, b_j)$, $i=1,\ldots,m$, and $j=1,\ldots,n$.
+
+In this example, there are $mn$ total results.
+
+## Counting strategy visualized
+
+![Illustration of the basic counting principle](./images/f1-17.png){height=70% fig-alt="Illustration of the basic counting principle."}
+
+## The Counting Principle
+
+::: {.callout-note}
+Consider a process that consists of $r$ stages. Suppose that
+
+(a) There are $n_1$ possible results at the first stage.
+(b) For every possible result of the first stage, there are 
+$n_2$ possible results at the second stage.
+(c) More generally, for any sequence of possible results at the first $i-1$ stages, there are $n_i$ possible results at the $i$th stage. 
+
+Then the total number of possible results of the $r$-stage process is 
+$$
+n_1 n_2 \dots n_r.
+$$
+:::
+
+## Example 1.26 The Number of Telephone Numbers
+
+A local telephone number is a 7-digit sequence, but the first digit must be different from 0 or 1. How many distinct telephone numbers are there?
+
+## Example 1.27 The Number of Subsets of an $n$-Element Set
+
+Consider an $n$-element set $\{s_1, s_2, \ldots, s_n\}$. How many subsets does it have?
+
+
+A local telephone number is a 7-digit sequence, but the first digit must be different from 0 or 1. How many distinct telepone numbers are there?
+
+## Focus
+
+We will focus on counting when we want to select $k$ objects out of a collection of $n$ objects.
+
+- **Permutation** is when the selection order matters.
+- **Combination** is when the selection order doesn't matter, only the set we end up with.
+
+# $k$-permutations
+
+## $k$-permutations
+
+We have $n$ distinct objects.
+
+How many ways can we pick $k$ objects out of the $n$ objects and arrange them in a sequence? ($k\leq n$)
+
+- We want the number of distinct $k$-object sequences.
+
+## $k$-permutation counting
+
+We have $n$ choices for the first selection, $n-1$ for the second selection, etc.
+
+The number of possible sequences, called **$k$-permutations**, is
+
+\begin{align}
+&n(n-1)\cdots(n-k+1) \\
+&\quad = \frac{n(n-1)\dots(n-k+1)(n-k)\dots(2)(1)}{(n-k)\dots(2)(1)}\\
+&\quad = \frac{n!}{(n-k)!}.
+\end{align}
+
+## Example 1.28
+
+How many unique "words" can we create from four unique (English alphabet) letters?
+
+## Example 1.29
+
+You have $n_1$ classical music albums, $n_2$ rock music albums, and $n_3$ country music albums.
+
+How many different ways can you arrange the albums so that the albums of the same type are contiguous?
+
+# Combinations
+
+## Combination context
+
+There are $n$ people and we are interested in forming a committee of size $k$. How many different committees are possible?
+
+- Note that the ordering of the people on the committee isn't important.
+- We are interested in combinations, not permutations.
+
+## Combinations versus permutations
+
+The $2$-permutations of the letters A, B, C, D are:
+
+<br>
+<br>
+<br>
+
+The combinations of size 2 from these 4 letters are:
+
+## Combination intuition
+
+Each combination is associated with $k!$ "duplicate" $k$-permutations (e.g., AB, BA).
+
+The number of possible combinations of size $k$ from $n$ objects is the number of $k$-permutations divided by $k!$, i.e.,
+
+$$
+\frac{n!}{k!(n-k)!}.
+$$
+
+Note that this is the same definition we used in the binomial coefficient, $\binom{n}{k}$.
+
+## Example 1.31
+
+We have a group of $n$ persons. Consider clubs that consist of a special person from the group (the club leader) and a number (possibly zero) of additional club members. How many possible clubs of this type are there?
+
+# Partitions
+
+## Partitions context
+
+A combination is a choice of $k$ elements out of an $n$-element set without regard to order.
+
+- A combination partitions the set into two subsets: one with $k$ elements and one with $n-k$ elements.
+
+We can generalize this notion to more than 2 subsets.
+
+## Partitions intuition
+
+We want to partition $n$ elements into $r$ subsets, where the first group has $n_1$ elements, the second has $n_2$ elements, and so on, such that $n_1 + n_2 + \dots +n_r = n$.
+
+We have $\binom{n}{n_1}$ ways of forming the first subset.
+
+We have $\binom{n - n_1}{n_2}$ ways of forming the second subset, and so on.
+
+## Partition combinations
+
+Using the Counting Principle for this $r$-stage process, the total number of choices is
+$$
+\binom{n}{n_1} \binom{n-n_1}{n_2} \dots \binom{n - n_1 -\dots - n_{r-1}}{n_r},
+$$
+which simplifies to
+$$
+\frac{n!}{n_1!n_2!\dots n_r!}.
+$$
+
+## Multinomial coefficient
+
+The **multinomial coefficient** 
+$$
+\binom{n}{n_1,n_2,\ldots,n_r}=\frac{n!}{n_1!n_2!\dots n_r!}.
+$$
+
+## Example 1.32 Anagrams
+
+How many different words can be obtained by rearranging the letters in the word TATTOO?
+
+## Example 1.32 (cont)
+
+## Example 1.33
+
+A class consisting of 4 graduate and 12 undergraduate students is randomly divided into 4 groups of 4. What is the probability that each group includes a graduate student?
+
+## Summary of Counting Results
+
+- **Permutations** of $n$ objects: $n!$.
+- **$k$-permutations** of $n$ objects: $n!/(n-k)!$
+- **Combinations** of $k$ out of $n$ objects: $\binom{n}{k} = \frac{n!}{k!(n-k)!}$.
+- **Partitions** of $n$ objects into $r$ groups, with the $i$th group having $n_i$ objects: 
+$$
+\binom{n}{n_1,n_2,\ldots,n_r}=\frac{n!}{n_1!n_2!\dots n_r!}.
+$$
