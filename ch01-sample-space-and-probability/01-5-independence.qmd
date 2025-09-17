@@ -59,18 +59,18 @@ $$
 
 Are the events below independent?
 $$
-A_i = \{1\text{st roll is a }1\}, \quad
-B_j = \{\text{sum of the two rolls is }5\}
+A = \{1\text{st roll is a }1\}, \quad
+B = \{\text{sum of the two rolls is }5\}
 $$
 
 ## Example 1.19 (continued)
 
 Are the events below independent?
 $$
-A_i = \{\text{maximum of the two rolls is }2\},
+A = \{\text{maximum of the two rolls is }2\},
 $$
 $$
-B_j = \{\text{minimum of the two rolls is }2\}
+B = \{\text{minimum of the two rolls is }2\}
 $$
 
 # Conditional Independence
@@ -107,9 +107,9 @@ $$
 
 ## Example 1.21
 
-There are two coins, a blue and red one. We choose one of the two coins at random, each being chosen with probability $1/2$. We proceed with two independent oses. The coins are biased: with the blue coin, the probability of heads in any given toss is 0.99, whereas for the red coin it is 0.01. 
+There are two coins, a blue and red one. We choose one of the two coins at random, each being chosen with probability $1/2$. We proceed with two independent tosses. The coins are biased: with the blue coin, the probability of heads in any given toss is 0.99, whereas for the red coin it is 0.01. 
 
-Let $B$ be the event that the blue coin was selected. Let $H_i$ be teh event that the $i$th toss results in a head. 
+Let $B$ be the event that the blue coin was selected. Let $H_i$ be the event that the $i$th toss results in a head. 
 
 The events $H_1$ and $H_2$ are dependent. However, they are conditionally independent given the coin.
 
@@ -118,7 +118,7 @@ The events $H_1$ and $H_2$ are dependent. However, they are conditionally indepe
 ## Summary
 
 ::: {.callout-note}
-- Two event $A$ and $B$ are **independent** if $P(A \cap B) = P(A) P(B)$.
+- Two events $A$ and $B$ are **independent** if $P(A \cap B) = P(A) P(B)$.
 - If $A$ and $B$ are independent, then $A$ and $B^c$ are independent.
 - Two events $A$ and $B$ are **conditionally independent** given another event $C$ with $P(C) > 0$, if $P(A \cap B \mid C) = P(A \mid C) P(B \mid C)$.
 - Independence does not imply conditional independence or vice versa.
@@ -163,10 +163,10 @@ The equality $P(A_1 \cap A_2 \cap A_3) = P(A_1)P(A_2)P(A_3)$ does not guarantee 
 Consider two rolls of a fair six-sided die, and the following events:
 
 $$
-A = \{1\text{st roll is}1, 2, \text{ or }3\},
+A = \{1\text{st roll is } 1, 2, \text{ or }3\},
 $$
 $$
-B = \{1\text{st roll is}3, 4, \text{ or }5\},
+B = \{1\text{st roll is }3, 4, \text{ or }5\},
 $$
 $$
 C = \{\text{the sum of the two rolls is }9\}.

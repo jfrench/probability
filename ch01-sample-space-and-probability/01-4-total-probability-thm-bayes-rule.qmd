@@ -35,7 +35,7 @@ P(B) &= P(A_1 \cap B) + \dots + P(A_n \cap B)\\
 
 ## Example 1.13
 
-You enter a chess tournament where your probability of wining a game is 0.3 against halp the players (type 1), 0.4 against a quarter of the players (type 2), and 0.5 against the remaining quarter of the players (type 3).
+You enter a chess tournament where your probability of wining a game is 0.3 against half the players (type 1), 0.4 against a quarter of the players (type 2), and 0.5 against the remaining quarter of the players (type 3).
 
 You play a game against a randomly chosen opponent. What is the probability of winning?
 
@@ -75,7 +75,7 @@ P(A_i \mid B) &= \displaystyle{\frac{P(A_i)P(B \mid A_i)}{P(B)}} \\
 
 Suppose we observe a shade in a person's X-ray (event $B$).
 
-We want to estimate the probability of three mutually exclusive and collectively exhaustic potential causes: 1. a malignant tumor ($A_1$), 2. a non-malignant tomor ($A_2$), 3. something other than a tumor ($A_3$).
+We want to estimate the probability of three mutually exclusive and collectively exhaustive potential causes: 1. a malignant tumor ($A_1$), 2. a non-malignant tumor ($A_2$), 3. something other than a tumor ($A_3$).
 
 Given that we see a shade ($B$ has occurred), Bayes' rule gives us the conditional probabilities of the various causes.
 

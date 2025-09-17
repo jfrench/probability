@@ -1,0 +1,74 @@
+---
+format:
+    revealjs:
+        css: style.css
+        auto-stretch: false
+self-contained: true
+callout-icon: false
+callout-appearance: simple
+---
+
+# Discrete Random Variables
+
+# 2.1 Basic Concepts
+
+## Discrete context
+
+A random variable is a function that assigns a real-number to each outcome of a random experiment. 
+
+This happens naturally in many experiments.
+
+- The outcome of rolling a six-sided die.
+- The number of home runs hit by a baseball player in a season.
+
+## More discrete context
+
+We can assign numbers to the outcomes of any experiment even when the outcomes aren't naturally numerical.
+
+- When flipping a coin, we can assign a 1 to a head and a -1 to a tail.
+- When throwing a dart at a dartboard, we assign the value 50 to a bullseye. Hitting certain sections of the board doubles or triples a number.
+
+## Visualization of a random variable
+
+![Visualization of a random variable](./images/f2-1.png){height="100%" fig-alt="Visualization of a random variable."}
+
+## Random variable examples
+
+We create a sequence of 5 coin tosses and record the outcome.
+
+- The sequence of heads and tails aren't a random variable.
+- If we assign a number to each outcome (perhaps the number of heads out of 5 coins), then that is a random variable.
+
+## Random variable examples
+
+We roll two die. Random variables include:
+
+- The sum of the two die rolls.
+- The number of sixes observed from the two die rolls.
+
+## Random variable examples
+
+We transmit a message. Random variables include:
+
+- The length of time needed to complete the transmission.
+- The number of errors in the message transmission.
+- The transmission time delay needed to receive the transmission.
+
+## Main concepts related to a random variable
+
+- A random variable is a real-valued function of the outcome of an experiment.
+- A function of a random variable defines another random variable.
+- The **mean** and **variance** of a random variable are characteristics commonly used to describe the behavior of the random variable.
+
+## More main concepts related to a random variable
+
+- A random variable can be **conditioned** on an event or another random variable.
+- Random variables can be **independent** of other random variables or events.
+
+## Concepts related to discrete random variables
+
+A **discrete** random variable is a random variable that can take only finite or countably infinite number of values.
+
+A discrete random variable has an associated **probability mass function (pmf)**, which gives the probability of each numerical value that the random variable can take.
+
+A function of a discrete random variable defines another discrete random variable, whose pmf can be obtained from the pmf of the original random variable.

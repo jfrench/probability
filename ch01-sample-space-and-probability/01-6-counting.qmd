@@ -35,7 +35,7 @@ In this example, there are $mn$ total results.
 
 ## Counting strategy visualized
 
-![Illustration of the basic counting principle](./images/f1-17.png){height=70% fig-alt="Illustration of the basic counting principle."}
+![Illustration of the basic counting principle](./images/f1-17.png){height="100%" fig-alt="Illustration of the basic counting principle."}
 
 ## The Counting Principle
 
@@ -60,9 +60,6 @@ A local telephone number is a 7-digit sequence, but the first digit must be diff
 ## Example 1.27 The Number of Subsets of an $n$-Element Set
 
 Consider an $n$-element set $\{s_1, s_2, \ldots, s_n\}$. How many subsets does it have?
-
-
-A local telephone number is a 7-digit sequence, but the first digit must be different from 0 or 1. How many distinct telepone numbers are there?
 
 ## Focus
 
@@ -99,15 +96,21 @@ How many unique "words" can we create from four unique (English alphabet) letter
 
 ## Example 1.29
 
-You have $n_1$ classical music albums, $n_2$ rock music albums, and $n_3$ country music albums.
+We have $n_1$ classical music albums, $n_2$ rock music albums, and $n_3$ country music albums.
 
-How many different ways can you arrange the albums so that the albums of the same type are contiguous?
+How many different ways can we arrange the albums so that the albums of the same type are contiguous?
+
+## Example 1.29 (cont)
+
+We offer to give a friend $k_i$ out of the $n_i$ albums for each type of music, where $k_i < n_i$, $i=1,2,3$. We pick $n_i-k_i$ albums of each group and let our friend take the rest of the albums in each group.
+
+How many different ways can we arrange our albums so that the albums of the same type are contiguous?
 
 # Combinations
 
 ## Combination context
 
-There are $n$ people and we are interested in forming a committee of size $k$. How many different committees are possible?
+There are $n$ people. We are interested in forming a committee of size $k$. How many different committees are possible?
 
 - Note that the ordering of the people on the committee isn't important.
 - We are interested in combinations, not permutations.
