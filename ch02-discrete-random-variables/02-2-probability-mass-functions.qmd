@@ -1,0 +1,71 @@
+---
+format:
+    revealjs:
+        css: style.css
+        auto-stretch: false
+self-contained: true
+callout-icon: false
+callout-appearance: simple
+---
+
+# 2.2 Probability Mass Functions
+
+## Definition
+
+The **probability mass function (pmf)** of a discrete random variable $X$ is a function $p_X: \mathbb{R} \to [0,1]$ defined by:
+$$
+p_X(x) = P(X = x)
+$$
+for each $x$ in the range of $X$, denoted $R_X$, where $R_X$ has a finite or countable infinite number of values.
+
+- Capital $X$ will denote a random variable.
+- Lowercase $x$ will denote a specific numeric value.
+
+## Calculation of the pmf
+
+For each possible value $x$ of $X$:
+
+1. Collect all the possible outcomes that give rise to the event $\{X = x\}.
+2. Add their probabilities to obtain $p_X(x)$.
+
+## Visualization of pmf calculation
+
+![Calculating a pmf](./images/f2-2.png){height=500 fig-alt="Calculating a pmf."}
+
+## Simple example
+
+Suppose we toss a fair coin twice in a row and count the number of heads.
+
+$$
+p_X(x) = 
+\begin{cases}
+\frac{1}{4} & \text{if } x = 0 \\
+\frac{1}{2} & \text{if } x = 1 \\
+\frac{1}{4} & \text{if } x = 2.
+\end{cases}
+$$
+
+## Properties of pmfs
+
+The pmf of a random variable $X$, $p_X(x)$, satisfies the following properties:
+
+- $p_X(x) \geq 0$ for all $x$
+- $\sum_{x \in R_X} p_X(x) = 1$, where $R_X$ is the range of $X$.
+- If $A\subset R_X$, then $P(A) = \sum_{x \in A} p_X(x)$.
+
+E.g., continuing our simple coin flipping example, 
+$$
+P(X > 0) = p_X(1) + p_X(2) = \frac{1}{4} + \frac{1}{2} = \frac{3}{4}.
+$$
+
+## Visualizing a binomial pmf
+
+![The pmf of a binomial random variable](./images/f2-3.png){height=500 fig-alt="The pmf of a binomial random variable."}
+
+## Visualizing a geometric pmf
+
+![The pmf of a geometric random variable](./images/f2-4.png){height=500 fig-alt="The pmf of a geometric random variable."}
+
+## Visualizing a Poisson pmf
+
+![The pmf of a Poisson random variable](./images/f2-5.png){height=500 fig-alt="The pmf of a Poisson random variable."}
