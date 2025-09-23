@@ -1,0 +1,62 @@
+---
+format:
+    revealjs:
+        css: style.css
+        auto-stretch: false
+self-contained: true
+callout-icon: false
+callout-appearance: simple
+bibliography: discrete.bib
+---
+
+# 2.3 Functions of random variables
+
+## Context
+
+Applying a function to a random variable generates another random variable.
+
+Example: Temperature
+
+- Let $X$ denote today's temperature in degrees Celsius.
+- $Y = 1.8 X + 32$ is a new random variable that gives the temperature in degrees Fahrenheit.
+
+## Linear and non-linear functions
+
+A transformation of $X$ is linear if it has the form
+$$
+Y = aX + b, \quad a,b \in \mathbb{R}.
+$$
+
+Any function that is not linear is **non-linear**, e.g., $Y = \log(X)$.
+
+## Transformation relationship
+
+If $X$ is a discrete random variable, then $Y=g(X)$ is also a discrete random variable with pmf
+$$
+p_Y(y) = \sum_{\{x:g(x)=y\}}p_X(x).
+$$
+
+## Example 2.1
+
+Let $X$ be a discrete random variable with pmf
+$$
+p_X(x) =
+\begin{cases}
+\frac{1}{9} & \text{if } x \text{ is an integer in }[-4,4],\\
+0 & \text{otherwise}.\\
+\end{cases}
+$$
+
+Let $Y = |X|$.
+
+Determine the pmf of $Y$.
+
+## Example 2.1 (cont)
+
+## Visualization of pmf calculation
+
+![The pmfs of $X$ and $Y=|X|$.](./images/f2-6.png){height=500 fig-alt="The pmfs of X and Y equal to the absolute value of X."}
+
+## Example 2.1 (cont)
+
+Also, obtain the pmf of $Z=X^2$.
