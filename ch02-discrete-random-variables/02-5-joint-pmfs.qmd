@@ -1,0 +1,147 @@
+---
+format:
+    revealjs:
+        css: style.css
+        auto-stretch: false
+self-contained: true
+callout-icon: false
+callout-appearance: simple
+bibliography: discrete.bib
+---
+
+# 2.5 Joint pmfs of multiple random variables
+
+## Definition of the joint pmf
+
+Let $X$ and $Y$ be two discrete random variables.  
+
+The **joint probability mass function (pmf)** is defined as:
+$$
+p_{X,Y}(x,y) = P(X = x, Y = y),
+$$
+for all $x,y \in \mathbb{R}$.
+
+Note:
+\begin{align}
+P(X = x, Y = y) &\equiv P(\{X=x\}\cap\{Y=y\}) \\
+&\equiv P(X=x\text{ and }Y=y).
+\end{align}
+
+## Properties of a joint pmf
+
+**Non-negativity**
+$$
+p_{X,Y}(x,y) \geq 0, \quad x,y\in \mathbb{R}.
+$$
+
+**Normalization**
+$$
+\sum_{x \in R_X} \sum_{y \in R_Y} p_{X,Y}(x,y) = 1.
+$$
+
+## Additivity
+
+**Additivity**
+
+Let $A$ be an event of interest contained in $\text{Range}(X,Y)$.
+
+\begin{align}
+P(A) &= P((X,Y) \in A) \\
+&= \sum_{(x,y)\in A} p_{X,Y}(x,y).
+\end{align}
+
+## Marginal pmf computation
+
+The marginal pmfs are obtained by summing over the other variable:
+\begin{align}
+p_X(x) &= \sum_{y \in R_Y} p_{X,Y}(x,y), \\
+p_Y(y) &= \sum_{x \in R_X} p_{X,Y}(x,y).
+\end{align}
+
+## Transformations of multiple random variables
+
+A function $g(X,Y)$ defines another random varible, and 
+$$
+E[g(X, Y)] = \sum_{x\in R_X}\sum_{y\in R_Y} g(x, y)p_{X,Y}(x,y).
+$$
+
+If $g$ is linear and has the form $Z = aX + bY + c$ for $a,b \in \mathbb{R}$, then 
+$$
+E(aX + bY + c) = aE(X) + bE(Y) + c.
+$$
+
+## Example 2.9 
+
+Consider two random variables, $X$ and $Y$, described by the joint pmf in the graphic below. Obtain the marginal pmfs of $X$ and $Y$. 
+
+![The joint pmf of $X$ and $Y$.](./images/f2-10.png){height=400 fig-alt="The joint pmf of X and Y."}
+
+## Example 2.9 (cont)
+
+## Example 2.9 (cont)
+
+Let $Z = X + 2Y$. Determine the pmf of $Z$.
+
+## Example 2.9 (cont)
+
+## Example 2.9 (cont)
+
+Determine $E(Z)$ and $\text{var}(Z)$.
+
+# More than Two Random Variables
+
+## Multivariate pmf definition
+
+The **joint probability mass function (pmf)** of discrete random variables $X$, $Y$, and $Z$ is defined as:
+
+$$
+p_{X,Y,Z}(x, y, z) = P(X = x, Y = y, Z = z),\quad x,y,z\in\mathbb{R}.
+$$
+
+## Valid multivariate pmf properties
+
+**Non-negativity**
+$$
+p_{X,Y,Z}(x, y, z) \geq 0 \quad \text{for all } x, y, z\in \mathbb{R}.
+$$
+  
+**Normalization**
+$$
+\sum_{x\in R_X} \sum_{y\in R_Y} \sum_{z\in R_Z} p_{X,Y,Z}(x, y, z) = 1.
+$$
+
+## Marginal pmfs
+
+Given the joint probability mass function $p_{X,Y,Z}(x, y, z) = P(X = x, Y = y, Z = z)$, the marginal pmf of $X$ is obtained by summing over all possible values of $Y$ and $Z$:
+
+$$
+p_X(x) = \sum_{y\in R_Y} \sum_{z\in R_Z} p_{X,Y,Z}(x, y, z), \quad x \in R_X.
+$$
+
+Similar definitions hold for $Y$ and $Z$.
+
+## Functions of multiple random variables
+
+$$
+E[g(X, Y, Z)] = \sum_{x\in R_X} \sum_{y\in R_Y} \sum_{z \in R_Z} g(x, y, z)p_{X, Y, Z}(x,y,z).
+$$
+
+If $g$ is linear and has the form $aX + bY + cZ + d$, then 
+$$
+E(aX + bY + cZ + d) = aE(X) + bE(Y) + cE(Z) + d.
+$$
+
+## Generalization
+
+For any random variables $X_1, X_2, \ldots, X_n$ and scalars $a_1, a_2, \ldots, a_n$,
+
+\begin{align}
+&E(a_1X_1 + a_2X_2 + \cdots + a_nX_n) \\
+&= a_1E(X_1) + a_2E(X_2) + \cdots + a_nE(X_n).
+\end{align}
+
+## Example 2.11 (The Hat Problem)
+
+Suppose that $n$ people throw their hats in a box and then each picks one hat at random (without replacement). What is the expected value of $X$, the number of people that get back their own hat?
+
+## Example 2.11 (cont)
