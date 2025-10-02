@@ -1,0 +1,160 @@
+---
+format:
+    revealjs:
+        css: style.css
+        auto-stretch: false
+self-contained: true
+callout-icon: false
+callout-appearance: simple
+bibliography: discrete.bib
+---
+
+# 2.6 Conditioning
+
+## Conditioning on events
+
+The **conditional pmf of $X$** given an event $A$ with $P(A) > 0$, is defined as 
+$$
+p_{X\mid A}(x)=P(X = x \mid A)=\frac{P(\{X = x\}\cap A)}{P(A)},
+$$
+and satisfies
+$$
+\sum_{x\in R_X}p_{X\mid A}(x) = 1.
+$$
+
+## Conditioning on events (cont)
+
+The fact that 
+$$
+\sum_{x\in R_X}p_{X\mid A}(x) = 1
+$$
+follows from the fact that
+$$
+P(A) = \sum_{x\in R_X}P(\{X = x\}\cap A)
+$$
+by the Total Probability Law.
+
+## Visualizing the conditional pmf
+
+![Visualization and calculation of the conditional pmf.](./images/f2-12.png){height=400 fig-alt="Visualization and calculation of the conditional pmf."}
+
+## Conditioning and the Total Probability Law
+If $A_1,\ldots,A_n$ are disjoint events that partition the sample space, with $P(A_i) > 0$ for $i=1,2,\ldots,n$, then 
+$$
+p_X(x) = \sum_{i=1}^n P(A_i)p_{X\mid A_i}(x).
+$$
+
+## Conditioning and the Total Probability Law (cont)
+Additionally, for any event $B$, if $P(A_i \cap B)>0$ for all $i$, we have
+$$
+p_{X\mid B}(x) = \sum_{i=1}^n P(A_i \mid B)p_{X \mid A_i \cap B}(x).
+$$
+
+## Example 2.12
+
+Let $X$ be the roll of a fair-sided die and let $A$ be the event that the roll is an even number. Determine the conditional pmf of $X$ when $A=\{\text{the roll is an even number}\}$.
+
+
+## Example 2.13
+
+A student can pass a test with probability $p$. The student will keep taking the test repeatedly, up to a maximum of $n$ times, until they pass the test. Each test outcome is independent. 
+
+Let $X$ be the number of attempts needed to pass the test if an unlimited number of events were allowed. Determine the pmf of $X$ given the student passed.
+
+## Example 2.13 (cont)
+
+# Conditioning one Random Variable on Another
+
+## Conditional pmf definition
+
+Let $X$ and $Y$ be discrete random variables. The **conditional pmf** of $X$ given $Y$ is defined as:
+
+$$
+p_{X|Y}(x|y) = \frac{P(X = x, Y = y)}{P(Y = y)} = \frac{p_{X,Y}(x,y)}{p_Y(y)}, 
+$$
+when $p_Y(y) > 0$.
+
+## Conditional pmf normalization
+
+$$
+\sum_{x \in R_X} p_{X|Y}(x|y) = 1,
+$$
+for each fixed $y$ with $p_Y(y) > 0$.
+
+## Visualizing the conditional pmf
+
+![Visualization of the conditional pmf.](./images/f2-13.png){height=400 fig-alt="Visualization of the conditional pmf."}
+
+## Joint and conditional pmfs
+
+The joint PMF can be expressed in terms of the conditional and marginal PMFs:
+
+$$
+p_{X,Y}(x,y) = p_{X|Y}(x|y) p_Y(y)
+$$
+and
+$$
+p_{X,Y}(x,y) = p_{Y|X}(y|x) p_X(x).
+$$
+
+## Example 2.14
+
+Professor May B. Right often has his facts wrong, and answers each of his students' questions incorrectly with probability $1/4$, independent of other questions. In each lecture, May is asked 0, 1, or 2 questions with equal probability $1/3$. Let $X$ and $Y$ be the number of questions May is asked and the number of questions she answers wrong in a given lecture, respectively. Construct the joint pmf of $X$ and $Y$. 
+
+## Example 2.14 (cont)
+
+## Example 2.14 (cont)
+
+![Example 2.14 joint pmf calculation.](./images/f2-13.png){height=400 fig-alt="Example 2.14 joint pmf calculation."}
+
+## Marginal and conditional pmfs
+
+The conditional pmf of $X$ given $Y$ can be used to calculate the marginal pmf of $X$ through the formula
+$$
+p_X(x) = \sum_{y\in R_Y} p_Y(y)p_{X\mid Y}(x \mid y).
+$$
+
+## Example 2.15
+
+Consider a transmitter that is sending messages over a computer network. Let us define the following two random variables:
+
+$$
+X: \text{the travel time of a given message},
+$$
+$$
+Y: \text{the length of the given message}.
+$$
+
+We know the pmf of the travel time of a message of a given length, and we know the mpf of the message length. Determine the pmf of the travel time of a message.
+
+## Example 2.15 (cont)
+
+The length of a message is either $10^2$ bytes with probability $5/6$ or $10^4$ bytes with probability $1/6$.
+
+The conditional distribution of the travel time when the message length $y=10^2$ bytes is
+
+$$
+p_{X\mid Y}(x \mid 10^2) = 
+\begin{cases}
+\frac{1}{2} & \text{if } x = 10^{-2}, \\
+\frac{1}{3} & \text{if } x = 10^{-1}, \\
+\frac{1}{6} & \text{if } x = 1. \\
+\end{cases}
+$$
+
+## Example 2.15 (cont)
+
+The conditional distribution of the travel time when the message length $y=10^4$ bytes is
+
+$$
+p_{X\mid Y}(x \mid 10^4) = 
+\begin{cases}
+\frac{1}{2} & \text{if } x = 1, \\
+\frac{1}{3} & \text{if } x = 10, \\
+\frac{1}{6} & \text{if } x = 100. \\
+\end{cases}
+$$
+
+## Example 2.15 (cont)
+
+## Example 2.15 (cont)
