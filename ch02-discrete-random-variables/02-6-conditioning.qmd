@@ -125,7 +125,7 @@ $$
 Y: \text{the length of the given message}.
 $$
 
-We know the pmf of the travel time of a message of a given length, and we know the mpf of the message length. Determine the pmf of the travel time of a message.
+We know the pmf of the travel time of a message of a given length, and we know the pmf of the message length. Determine the pmf of the travel time of a message.
 
 ## Example 2.15 (cont)
 
