@@ -158,3 +158,55 @@ $$
 ## Example 2.15 (cont)
 
 ## Example 2.15 (cont)
+
+# Conditional Expectation
+
+## Conditional Expectations Facts
+
+Let $X$ be a discrete random variable and $A$ be an event.
+
+$$
+E(X\mid A) = \sum_x xp_{X\mid A}(x),
+$$
+and for a function $g(X)$,
+$$
+E(g(X)\mid A) = \sum_x g(x)p_{X\mid A}(x).
+$$
+
+## Conditional Expectation Facts (cont)
+
+If $A_1, \ldots, A_n$ from a partition of the sample space and $P(A_i) > 0$ for all $i$, then
+
+$$
+E(X) = \sum_{i=1}^n P(A_i)E(X \mid A_i),
+$$
+and additionally,
+$$
+E(X \mid B) = \sum_{i=1}^n P(A_i \mid B)E(X\mid A_i \cap B).
+$$
+
+## Conditional Expectation Facts (cont)
+
+$$
+E(X) = \sum_y p_Y(y)E(X\mid Y = y).
+$$
+
+## A Proof
+
+## Example 2.16
+
+Messages transmitted by a computer in Boston through a data network are destined for New York with probability 0.5, for Chicago with probability 0.3, and for San Francisco with probability 0.2. The transit time, $X$, of a message is random. The mean is 0.05 seconds if it is destined for New York, 0.1 seconds if it is destined for Chicago, and 0.3 seconds if it is destined for San Francisco.
+
+Determine $E(X)$.
+
+## Example 2.16 (cont)
+
+## Example 2.17 Mean and Variance of the Geometric
+
+Let $X\sim \text{Geometric}(p)$. Determine $E(X)$ and $\text{var}(X)$.
+
+## Example 2.17 Mean and Variance of the Geometric (cont)
+
+## Example 2.17 Mean and Variance of the Geometric (cont)
+
+## Example 2.17 Mean and Variance of the Geometric (cont)
