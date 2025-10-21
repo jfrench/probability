@@ -1,0 +1,193 @@
+---
+format:
+    revealjs:
+        css: style.css
+        auto-stretch: false
+self-contained: true
+callout-icon: false
+callout-appearance: simple
+---
+
+# 3.1 Continuous random variables and pdfs
+
+## Definining a continuous random variable
+
+A random variable, $X$, is **continuous** if there exists a function, $f_X$,
+such that
+$$
+P(a\leq X \leq b) = \int_a^b f_X(x)dx.
+$$
+
+In that case, $f_X$ is known as the probability density function (pdf).
+
+## pdf illustration
+
+## Visualizing the conditional pmf
+
+![The probability that $X$ takes a value in an interval $[a,b]$ is $\int_a^b f_X(x)dx$.](./images/f3-1.png){height=400 fig-alt="Illustration of a pdf. The probability that X takes a value in an interval [a,b] is the integral under the curve between a and b."}
+
+## pdf properties
+
+A pdf must satisfy the following properties:
+
+1. $f_X(x) \geq 0$ for all $x\in \mathbb{R}$.
+2. $\int_{-\infty}^{\infty} f_X(x)dx=1$.
+3. $P(a\leq X \leq b) = \int_a^b f_X(x)dx$.
+
+As a consequence of point 3, 
+$$
+P(X=a)=P(a\leq X \leq a) = \int_a^a f_X(x)dx=0.
+$$
+
+## Example 3.1 Continuous Uniform Random Variable
+
+A gambler spins a wheel of fortune, continuously calibrated betwen 0 and 1, and observes the resulting number. Assuming that any two subintevals of [0,1] of the same length have the same probability, this experiment can be modeled in terms of a random variable $X$ with pdf
+$$
+f_X(x) = 
+\begin{cases}
+c & \text{if } 0 \leq x \leq 1 \\
+0 & \text{otherwise}.
+\end{cases}
+$$
+
+What should the constant $c$ be?
+
+## Example 3.1 (cont)
+
+
+## Uniform($a$, $b$) random variable
+
+A Uniform($a$, $b$) random variable has the pdf
+$$
+f_X(x) = 
+\begin{cases}
+\frac{1}{b-a} & \text{if } a \leq x \leq b \\
+0 & \text{otherwise}.
+\end{cases}
+$$
+
+## Uniform($a$, $b$) pdf
+
+![The pdf of a uniform random variable.](./images/f3-3.png){height=400 fig-alt="The pdf of a uniform random variable."}
+
+## Uniform($a$, $b$) continued
+
+Verify that the Uniform($a$, $b$) density is valid.
+
+## Example 3.2 Piecewise Constant pdf
+
+Alvin's driving time to work is between 15 and 20 minutes if the day is sunny and between 20 and 25 minutes if the day is rainy, with all times being equally like in each case.
+
+Assume that a day is sunny with probabilty 2/3 and rainy with probability 1/3. What is the pdf of the driving time, viewed as a random variable $X$?
+
+## Example 3.2 Piecewise Constant pdf (cont)
+
+## Example 3.2 Piecewise Constant pdf (cont)
+
+## A piecewise constant pdf
+
+![A piecewise constant pdf involving three intervals.](./images/f3-4.png){height=400 fig-alt="A piecewise constant pdf involving three intervals."}
+
+## Example 3.3 A pdf can take arbitrarily large values
+
+Consider a random variable $X$ with pdf
+$$
+f_X(x) = 
+\begin{cases}
+\frac{1}{2\sqrt{x}} & \text{if } 0 \leq x \leq 1 \\
+0 & \text{otherwise}.
+\end{cases}
+$$
+
+Verify that this is a pdf.
+
+## Example 3.3 (cont)
+
+## Expected value
+
+The **expected value** of a continuous random variable $X$ is 
+$$
+E(X) = \int_{-\infty}^{\infty} x f_X(x) \, dx.
+$$
+
+Similarly,
+$$
+E[g(X)] = \int_{-\infty}^{\infty} g(x) f_X(x) \, dx.
+$$
+
+## More expected value
+
+The **variance** of a continuous random variable $X$ is
+$$
+\text{var}(X) = \int_{-\infty}^{\infty} (x - E[X])^2 f_X(x) \, dx.
+$$
+
+Oftentimes, it is more convenient to use the relationship
+$$
+\text{var}(X) = E(X^2) - (E[X])^2.
+$$
+
+## Expectation of a linear function
+
+If $Y = aX + b$, then
+
+$$
+E(Y) = aE(X) + b
+$$
+and
+$$
+\text{var}(Y)=a^2\text{var}(X).
+$$
+
+## Example 3.4 Mean and variance of a uniform random variable
+
+Let $X\sim\text{Uniform}(a,b)$. 
+
+Write the pdf of $X$.
+
+## Example 3.4 (cont)
+
+Determine $E(X)$.
+
+## Example 3.4 (cont)
+
+Determine $\text{var}(X)$.
+
+## The Exponential Random Variable
+
+Let $X \sim \text{Exponential}(\lambda)$, where $\lambda > 0$ is the rate parameter. The pdf of $X$ is:
+
+$$
+f_X(x) = 
+\begin{cases}
+\lambda e^{-\lambda x} & \text{if } x \geq 0 \\
+0 & \text{otherwise}.
+\end{cases}
+$$
+
+## Exponential pdf validy
+
+Verify that the pdf is valid.
+
+## Exponential probabilities
+
+Determine $P(X\geq a)$ for $a\geq0$.
+
+## Exponential mean visualized
+
+![Line plot $\lambda e^{-\lambda x}$.](./images/f3-4.png){height=400 fig-alt="Line plot of x times the pdf of an exponential lambda distribution."}
+
+## Exponential variance
+
+Determine $\text{var}(X)$.
+
+## Example 3.5
+
+The time until a small metorite first lands anywhere in the Sahara desert is modeled as an exponential random variable with a mean of 10 days. The time is currently midnight. What is the probability that a meteorite first lands sometime between 6 a.m. and 6 p.m. of the first day?
+
+Let $X$ be the time elapsed until the event of interest, measured in days. Then $X$ is Exponential with mean $1/\lambda=10$, which yields $\lambda = 10$. 
+
+## Example 3.5 (cont)
+
+The desired probability is
+
