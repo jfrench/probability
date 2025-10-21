@@ -22,8 +22,6 @@ In that case, $f_X$ is known as the probability density function (pdf).
 
 ## pdf illustration
 
-## Visualizing the conditional pmf
-
 ![The probability that $X$ takes a value in an interval $[a,b]$ is $\int_a^b f_X(x)dx$.](./images/f3-1.png){height=400 fig-alt="Illustration of a pdf. The probability that X takes a value in an interval [a,b] is the integral under the curve between a and b."}
 
 ## pdf properties
@@ -153,6 +151,8 @@ Determine $E(X)$.
 
 Determine $\text{var}(X)$.
 
+## Example 3.4 (cont)
+
 ## The Exponential Random Variable
 
 Let $X \sim \text{Exponential}(\lambda)$, where $\lambda > 0$ is the rate parameter. The pdf of $X$ is:
@@ -165,7 +165,11 @@ f_X(x) =
 \end{cases}
 $$
 
-## Exponential pdf validy
+## Exponential pdf visualized
+
+![pdf $\lambda e^{-\lambda x}$.](./images/f3-4.png){height=400 fig-alt="Line plot of pdf of an exponential lambda distribution."}
+
+## Exponential pdf validity
 
 Verify that the pdf is valid.
 
@@ -173,9 +177,10 @@ Verify that the pdf is valid.
 
 Determine $P(X\geq a)$ for $a\geq0$.
 
-## Exponential mean visualized
+## Exponential mean
 
-![Line plot $\lambda e^{-\lambda x}$.](./images/f3-4.png){height=400 fig-alt="Line plot of x times the pdf of an exponential lambda distribution."}
+Determine $E(X)$.
+
 
 ## Exponential variance
 
