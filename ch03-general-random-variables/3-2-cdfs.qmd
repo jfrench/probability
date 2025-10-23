@@ -1,0 +1,153 @@
+---
+format:
+    revealjs:
+        css: style.css
+        auto-stretch: false
+self-contained: true
+callout-icon: false
+callout-appearance: simple
+---
+
+# 3.2 Cumulative Distribution Functions
+
+## Definition of the cdf
+
+The **cumulative distribution function** or cdf of a discrete random variable is defined as
+
+$$
+F_X(x) = P(X\leq x) = \sum_{x_i \leq x} P(X = x_i).
+$$
+
+The cdf of a continuous random variable is defined as 
+
+$$
+F_X(x)=P(X\leq x)=\int_{-\infty}^{x} f_X(t)\,dt.
+$$
+
+## Comments
+
+Informally, a cdf accumulates probabilities up to $x$.
+
+The cdf, pmf, or pdf will be referred to as the **probability law** or **probability distribution** of the random variable $X$.
+
+The pdf of a continuous random variable $X$ can be obtained through the relationship
+$$
+f_X(x) = \frac{dF_X(x)}{dx}.
+$$
+
+The cdf of a continuous random variable has no jumps.
+
+## Discrete cdf
+
+![cdfs of some discrete random variables.](./images/f3-6.png){height=400 fig-alt="cdfs of some discrete random variables"}
+
+## Continuous cdf
+
+![cdfs of some continuous random variables.](./images/f3-7.png){height=400 fig-alt="cdfs of some continuous random variables"}
+
+## cdf properties
+
+The cdf of a random variable $X$ is defined by
+$$
+F_X(x) = P(X\leq x), \quad \text{for all }x\in\mathbb{R}.
+$$
+
+A cdf has the following properties:
+
+- $F_X(x)$ is monotonically increasing.
+- $\lim_{x\rightarrow -\infty}F_X(x) = 0$.
+- $\lim_{x\rightarrow \infty}F_X(x) = 1$.
+
+## More cdf properties
+
+If $X$ is discrete, then $F_X(x)$ is a piecewise constant function of $x$.
+
+If $X$ is continuous, then $F_X(x)$ is a continuous function of $x$.
+
+## Some discrete cdf properties
+
+If $X$ is discrete and takes integer values, then
+$$
+F_X(k) = \sum_{i=-\infty}^k p_X(i),
+$$
+and
+\begin{align}
+p_X(k) &= P(X\leq k) - P(X\leq k-10)\\
+&= F_X(k) - F_X(k-1).
+\end{align}
+
+## Some continuous cdf properties
+
+If $X$ is continuous, then
+$$
+F_X(x) = \sum_{-\infty}^x p_X(t)\, df
+$$
+and
+$$
+f_X(x) = \frac{dF_X(x)}{dx}.
+$$
+
+## Example 3.6 The maximum of several random variables
+
+You are allowed to take a certain test three times, and your final score will be the maximum of the test scores.
+
+Thus,
+$$
+X=\max\{X_1, X_2, X_3\},
+$$
+where $X_1,X_2,X_3$ are the three test scores and $X$ is the final score.
+
+Assume that your score in each test takes one of the values from 1 to 10 with equal probability $1/10$, and each test score is independent.
+
+## Example 3.6 (cont)
+
+What is the pmf, $p_X$, of the final score?
+
+# The Geometric and Exponential CDFs
+
+## The Geometric pmf and cdf
+
+Let $X\sim \text{Geometric}(p)$, with $p\in[0, 1]$.
+
+Then the pmf, for $k=1,2,\ldots$ is given by
+<br>
+<br>
+$p_X(k) =$
+<br>
+<br>
+The cdf is given by
+<br>
+<br>
+$F_X(n) =$
+
+## The Exponential pdf and cdf
+
+Let $X\sim\text{Exponential}(\lambda)$ for $\lambda > 0$.
+
+The pdf is given by
+<br>
+<br>
+$p_X(x) =$
+<br>
+<br>
+The cdf is given by
+<br>
+<br>
+$F_X(x) =$
+
+## Geometric and exponential relationship
+
+![Relation of the geometric and exponential cdfs.](./images/f3-8.png){height=400 fig-alt="Relation of the geometric and exponential cdfs."}
+
+## Geometric and exponential relationship
+
+Define $\delta = -\ln(1-p)/\lambda$, so that
+$$
+e^{-\lambda\delta}=1-p.
+$$
+
+Then when $x=n\lambda$, with $n=1,2,\ldots$,
+$$
+F_{\text{exp}}(n\delta) = F_{\text{geo}}(n).
+$$
+

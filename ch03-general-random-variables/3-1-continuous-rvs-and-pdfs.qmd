@@ -12,7 +12,7 @@ callout-appearance: simple
 
 ## Definining a continuous random variable
 
-A random variable, $X$, is **continuous** if there exists a function, $f_X$,
+A random variable, $X$, is (absolutely) **continuous** if there exists a function, $f_X$,
 such that
 $$
 P(a\leq X \leq b) = \int_a^b f_X(x)dx.

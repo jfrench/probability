@@ -1,0 +1,68 @@
+---
+format:
+    revealjs:
+        css: style.css
+        auto-stretch: false
+self-contained: true
+callout-icon: false
+callout-appearance: simple
+---
+
+# 3.3 Normal Random Variables
+
+# Normal pdf
+
+A continuous random variable $X$ is **normal** or **Gaussian** with mean $\mu$ and variance $\sigma^2$ if its pdf is
+
+$$
+f_X(x)=\frac{1}{\sigma\sqrt{2\pi}}e^{-(x-\mu)^2/2\sigma^2}.
+$$
+
+We write $X\sim N(\mu, \sigma^2)$.
+
+## Normal pdf
+
+```{r}
+#| echo: false
+#| 
+x <- seq(-3, 5, len = 1001)
+plot(x, dnorm(x, mean = 1), type = "l",
+xlab = "x", ylab = "density")
+title("N(1, 1) density")
+```
+
+## Mean of a normal
+
+## Variance of a normal
+
+## The normal is special
+
+The standard normal random variable has mean 0 and variance 1.
+
+**Normality is preserved by linear transformation**
+
+If $X\sim N(0, 1)$ and $Y=\mu +\sigma X$, then
+$$
+Y\sim N(\mu,\sigma^2).
+$$
+
+The pdf of a standard normal is denoted by $\phi(x)$ and the cdf by $\Phi(x)$.
+
+## Example 3.7
+
+The annual snowfall at a location is modeld as a $N(60, 20^2)$ random variable.
+
+What is the probability that this year's snowfall will be at least 80 inches?
+
+## Example 3.8 Signal detection
+
+A binary message is transmitted as a signal $s$, which is either -1 or +1.
+The communication channel corrupts the transmission with additive normal noise with mean 0 and variance $\sigma^2$. The receive concludes that the signal -1 was transmitted if $x < 0$ or +1 if $x \geq 0$.
+
+What is the probability of error if $\sigma=1$?
+
+## Example 3.8 (cont)
+
+## Example 3.8 (cont)
+
+![The signal detection scheme.](./images/f3-6.png){height=400 fig-alt="The signal detection scheme."}
