@@ -72,7 +72,7 @@ F_X(k) = \sum_{i=-\infty}^k p_X(i),
 $$
 and
 \begin{align}
-p_X(k) &= P(X\leq k) - P(X\leq k-10)\\
+p_X(k) &= P(X\leq k) - P(X\leq k-1)\\
 &= F_X(k) - F_X(k-1).
 \end{align}
 
@@ -80,7 +80,7 @@ p_X(k) &= P(X\leq k) - P(X\leq k-10)\\
 
 If $X$ is continuous, then
 $$
-F_X(x) = \sum_{-\infty}^x p_X(t)\, df
+F_X(x) = \int_{-\infty}^x f_X(t)\, dt
 $$
 and
 $$
@@ -127,7 +127,7 @@ Let $X\sim\text{Exponential}(\lambda)$ for $\lambda > 0$.
 The pdf is given by
 <br>
 <br>
-$p_X(x) =$
+$f_X(x) =$
 <br>
 <br>
 The cdf is given by

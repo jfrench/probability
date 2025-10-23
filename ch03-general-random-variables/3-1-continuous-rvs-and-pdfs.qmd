@@ -167,7 +167,7 @@ $$
 
 ## Exponential pdf visualized
 
-![pdf $\lambda e^{-\lambda x}$.](./images/f3-4.png){height=400 fig-alt="Line plot of pdf of an exponential lambda distribution."}
+![pdf $\lambda e^{-\lambda x}$.](./images/f3-5.png){height=400 fig-alt="Line plot of pdf of an exponential lambda distribution."}
 
 ## Exponential pdf validity
 
@@ -190,7 +190,7 @@ Determine $\text{var}(X)$.
 
 The time until a small metorite first lands anywhere in the Sahara desert is modeled as an exponential random variable with a mean of 10 days. The time is currently midnight. What is the probability that a meteorite first lands sometime between 6 a.m. and 6 p.m. of the first day?
 
-Let $X$ be the time elapsed until the event of interest, measured in days. Then $X$ is Exponential with mean $1/\lambda=10$, which yields $\lambda = 10$. 
+Let $X$ be the time elapsed until the event of interest, measured in days. Then $X$ is Exponential with mean $1/\lambda=10$, which yields $\lambda = 1/10$. 
 
 ## Example 3.5 (cont)
 
