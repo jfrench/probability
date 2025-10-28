@@ -1,0 +1,123 @@
+---
+format:
+    revealjs:
+        css: style.css
+        auto-stretch: false
+self-contained: true
+callout-icon: false
+callout-appearance: simple
+---
+
+# 3.4 Conditioning on an event
+
+## Conditional pdf
+Let $X$ be a continuous random variable with
+probability density function $f_X(x)$, and let
+ $A \subseteq \mathbb{R}$ be an event such 
+ that $P(X \in A) > 0$. 
+ 
+The **conditional pdf** of X given the event $X \in A$
+ is defined as:
+$$
+f_{X\mid A}(x) = 
+\begin{cases}
+\frac{f_X(x)}{P(X \in A)} &\text{for } x \in A\\
+0 & \text{otherwise}.
+\end{cases}
+$$
+
+This ensures that the conditional pdf integrates to 1 over the set $A$, and reflects the updated distribution of $X$ under the condition that $X \in A$.
+
+## Conditional vs unconditional pdf
+
+![A comparison of a conditional and unconditional pdf.](./images/f3-13.png){height=400 fig-alt="A comparison of a conditional and unconditional pdf."}
+
+## Example 3.10 Memoryless property
+
+Sammy Jankis goes to a bus stop where the time $T$ between two successive buses has an exponential pdf with parameter $\lambda$. Suppose that Sammy arrives $t$ secs after the preceding bus
+arrival and let us express this fact with the event $A = \{T > t\}$. Let X be the time
+that Sammy has to wait for the next bus to arrive. What is the conditional CDF
+$F_{X\mid A}(x |A)$?
+
+## Example 3.10 (cont)
+
+## Example 3.10 (cont)
+
+Thus, the conditional cdf of $X$ is exponential with parameter $\lambda$, regardless
+the time $t$ that elapsed between the preceding bus arrival and Sammy’s arrival. 
+
+This
+is known as the **memorylessness** property of the exponential.
+
+Generally, if we model
+the time to complete a certain operation by an exponential random variable $X$,
+this property implies that as long as the operation has not been completed, the
+remaining time up to completion has the same exponential cdf, no matter when
+the operation started.
+
+## Conditional expectation
+
+The conditional expectation of $X$ given the event $A$ is defined as:
+$$
+E(X \mid A) = \int_{-\infty}^\infty
+x f_{X\mid A}(x)\,dx,
+$$
+and
+$$
+E[g(X) \mid A] = \int_{-\infty}^\infty
+g(x) f_{X\mid A}(x)\,dx.
+$$
+
+## More conditional expectation
+
+If $A_1, A_2, \ldots, A_n$ partition the sample space, with $P(A_i) > 0$ for all $i$, then
+$$
+f_X(x) = \sum_{i=1}^n P(A_i) f_{X\mid A_i}(x).$$
+
+## More conditional expectation
+
+Additionally, in the same context,
+$$
+E(X) = \sum_{i=1}^n P(A_i) E(X \mid A_i),
+$$
+and
+$$
+E[g(X)] = \sum_{i=1}^n P(A_i) E[g(X) \mid A_i.
+$$
+
+## Example 3.11
+
+Suppose that the random variable $X$ has the piecewise constant pdf
+$$
+f_X(x) =
+\begin{cases}
+1/3 &\text{if } 0\leq x \leq 1,\\
+2/3 &\text{if }1< x \leq 2,\\
+0 &\text{otherwise}.
+\end{cases}
+$$
+
+Determine the mean and variance of $X$.
+
+## Example 3.11 pdf
+
+![The piecewise constant pdf of Example 3.11.](./images/f3-14.png){height=400 fig-alt="The piecewise constant pdf of Example 3.11"}
+
+## Example 3.11 (cont)
+
+## Example 3.11 (cont)
+
+## Example 3.12
+
+The metro train arrives at the station near your home every
+quarter hour starting at 6:00 AM. You walk into the station every morning between
+7:10 and 7:30 AM, with the time in this interval being a uniform random variable.
+What is the pdf of the time you have to wait for the first train to arrive?
+
+## Example 3.12 pdf
+
+![The relevant pdfs of Example 3.12.](./images/f3-15.png){height=400 fig-alt="The relevant pdfs of Example 3.12."}
+
+## Example 3.12 (cont)
+
+## Example 3.12 (cont)
