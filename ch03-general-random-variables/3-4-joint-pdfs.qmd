@@ -1,0 +1,156 @@
+---
+format:
+    revealjs:
+        css: style.css
+        auto-stretch: false
+self-contained: true
+callout-icon: false
+callout-appearance: simple
+---
+
+# 3.4 Joint pdfs of multiple random variables
+
+## Jointly continuous definition
+Two random variables are **jointly continuous**
+with **joint pdf** $f_{X,Y}$ if there exists a
+nonnegative function that satisfies
+$$
+P[(X,Y)\in B]=\iint \limits_{(x,y)\in B} f_{X,Y}(x,y)\,dx\,dy,
+$$
+for any $B\subseteq \mathbb{R}^2$.
+
+## Additional properties
+
+Additionally, a joint pdf must satisfy the normalization property of probability, i.e.,
+$$
+\int_{-\infty}^\infty \int_{-\infty}^\infty f_{X,Y}(x,y)\,dx\,dy = 1.
+$$
+
+## Marginal pdf
+
+The **marginal** pdf $f_X$ of $X$ is computed from the joint pdf by
+$$
+f_X(x) = \int_{-\infty}^\infty f_{X,Y}(x,y)\,dy.
+$$
+
+Similarly, the marginal pdf of $Y$ is
+$$
+f_Y(y) = \int_{-\infty}^\infty f_{X,Y}(x,y)\,dx.
+$$
+
+## Example 3.9 Two-dimensional uniform pdf
+
+Romeo and Juliet have a data at a given time, and each will arrive at the meeting place with a delay between 0 and 1 hour. Let $X$ and $Y$ denote the delays of Romeo and Julien, respectively, Assuming that no pairs $(x,y)$ in the unit square are more likely than others, a natural model involves a joint pdf of the form
+$$
+f_{X,Y}(x,y) = c I_{[0,1]}(x) I_{[0,1]}(y). 
+$$
+Determine $c$.
+
+## Example 3.9 (cont)
+
+## Example 3.10
+
+The joint pdf of random variables $X$ and $Y$ is a constant $c$ on the set $S$ shown in the Figure below and 0 otherwise.
+
+Determine $c$. Determine the marginal pdf of $X$ and the marginal pdf of $Y$.
+
+## Example 3.10 (cont)
+
+## Conditional vs unconditional pdf
+
+![The joint pdf of $X$ and $Y$.](./images/f3-12.png){height=400 fig-alt="The joint pdf of X and Y."}
+
+## Example 3.10 (cont)
+
+## Example 3.10 (cont)
+
+## Example 3.10 (cont)
+
+## Hydration example
+
+Josh refills his water bottle every 3 hours. Let $Y$ denote the proportion of the water bottle filled with water at the beginning of the 3-hour window. Let $X$ denote the amount of water the author consumes in the 3-hour window (measured in the the proportion of total water bottle capacity).  We know that $0\leq X \leq Y \leq 1$. The joint density of the random variables is
+$$
+f(x,y)=4y^2,\quad 0 \leq x\leq y\leq 1,
+$$
+and 0 otherwise.
+
+## Hydration example (cont)
+
+$P(0.5\leq X\leq 1, 0.75\leq Y)$
+
+## Hydration example (cont)
+
+Determine the marginal distributions of $X$ and $Y$.
+
+## Hydration example (cont)
+
+## Joint cdfs
+
+The joint cdf of jointly continuous random variables $X$ and $Y$ is
+$$
+F_{X,Y}(x,y) = P(X\leq x, Y\leq y) = \int_{-\infty}^x\int_{-\infty}^y f_{X,Y}(s,t)\,dt\,ds.
+$$
+
+Converely,
+$$
+f_{X,Y}(x,y) = \frac{\partial^2}{\partial x \partial y}F_{X,Y}(x,y).
+$$
+
+## Example 3.12
+
+Determine the cdf of the following jointly continuous pdf
+$$
+f_{X,Y}(x,y) = I_{[0,1]}(x)I_{[0,1]}(y).
+$$
+
+## Example 3.12 (cont)
+
+Verify the pdf from the cdf.
+
+# Expectation
+
+## Expected value
+
+The expectation of a function of jointly continuous random variables is
+$$
+E[g(X,Y)] = \int_{-\infty}^\infty \int_{-\infty}^\infty g(x,y) f_{X,Y}(x,y)\,dx\,dy.
+$$
+
+Additionally, for scalars $a$, $b$, $c$,
+$$
+E[aX + bY + c] = aE(X) + bE(Y) + c.
+$$
+
+## More than two random variables
+
+The ideas presented above extend directly to multiple dimensions.
+
+## Extended jointly continuous definition
+
+Three random variables are **jointly continuous**
+with **joint pdf** $f_{X,Y,Z}$ if there exists a
+nonnegative function that satisfies
+$$
+P[(X,Y,Z)\in B]=\iiint \limits_{(x,y,z)\in B} f_{X,Y,Z}(x,y,z)\,dx\,dy\,dz,
+$$
+for any $B\subseteq \mathbb{R}^3$.
+
+## Extended marginal pdf
+
+The **marginal** pdf $f_X$ of $X$ is computed from the joint pdf by
+$$
+f_X(x) = \int_{-\infty}^\infty \int_{-\infty}^\infty f_{X,Y,Z}(x,y,z)\,dy\,dz.
+$$
+
+## Expected value
+
+The expectation of a function of jointly continuous random variables is
+\begin{align}
+&E[g(X,Y,Z)]\\
+&= \int_{-\infty}^\infty \int_{-\infty}^\infty \int_{-\infty}^\infty g(x,y,z) f_{X,Y,Z}(x,y,z)\,dx\,dy\,dz.
+\end{align}
+
+Additionally, for scalars $a_1,a_2,\ldots,a_n$,
+$$
+E\left(\sum_{i=1}^n X_i \right) = \sum_{i=1}^n E(X_i).
+$$

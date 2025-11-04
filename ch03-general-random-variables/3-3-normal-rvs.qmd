@@ -31,6 +31,21 @@ xlab = "x", ylab = "density")
 title("N(1, 1) density")
 ```
 
+## Normal pdf
+
+```{r}
+#| echo: false
+#| 
+x <- seq(-3, 5, len = 1001)
+plot(x, pnorm(x, mean = 1), type = "l",
+xlab = "x", ylab = "P(X <= x)")
+title("N(1, 1) cdf")
+```
+
+## Validity of normal pdf
+
+## Validity of normal pdf (cont)
+
 ## Mean of a normal
 
 ## Variance of a normal
@@ -50,7 +65,7 @@ The pdf of a standard normal is denoted by $\phi(x)$ and the cdf by $\Phi(x)$.
 
 ## Example 3.7
 
-The annual snowfall at a location is modeld as a $N(60, 20^2)$ random variable.
+The annual snowfall at a location is modeled as a $N(60, 20^2)$ random variable.
 
 What is the probability that this year's snowfall will be at least 80 inches?
 
@@ -65,4 +80,4 @@ What is the probability of error if $\sigma=1$?
 
 ## Example 3.8 (cont)
 
-![The signal detection scheme.](./images/f3-6.png){height=400 fig-alt="The signal detection scheme."}
+![The signal detection scheme.](./images/f3-11.png){height=400 fig-alt="The signal detection scheme."}

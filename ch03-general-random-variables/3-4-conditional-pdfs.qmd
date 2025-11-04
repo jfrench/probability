@@ -82,7 +82,7 @@ E(X) = \sum_{i=1}^n P(A_i) E(X \mid A_i),
 $$
 and
 $$
-E[g(X)] = \sum_{i=1}^n P(A_i) E[g(X) \mid A_i.
+E[g(X)] = \sum_{i=1}^n P(A_i) E[g(X) \mid A_i].
 $$
 
 ## Example 3.11
