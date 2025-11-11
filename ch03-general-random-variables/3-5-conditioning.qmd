@@ -1,0 +1,260 @@
+---
+format:
+    revealjs:
+        css: style.css
+        auto-stretch: false
+self-contained: true
+callout-icon: false
+callout-appearance: simple
+---
+
+# 3.5 Conditioning
+
+# Conditioning a Random Variable on an Event
+
+## Conditional pdf
+Let $X$ be a continuous random variable with
+probability density function $f_X(x)$, and let
+ $A \subseteq \mathbb{R}$ be an event such 
+ that $P(X \in A) > 0$. 
+ 
+The **conditional pdf** of X given the event $X \in A$
+ is defined as:
+$$
+f_{X\mid A}(x) = 
+\begin{cases}
+\frac{f_X(x)}{P(X \in A)} &\text{for } x \in A\\
+0 & \text{otherwise}.
+\end{cases}
+$$
+
+This ensures that the conditional pdf integrates to 1 over the set $A$, and reflects the updated distribution of $X$ under the condition that $X \in A$.
+
+## Conditional vs unconditional pdf
+
+![A comparison of a conditional and unconditional pdf.](./images/f3-13.png){height=400 fig-alt="A comparison of a conditional and unconditional pdf."}
+
+## Example 3.13 Memoryless property
+
+Sammy Jankis goes to a bus stop where the time $T$ between two successive buses has an exponential pdf with parameter $\lambda$. Suppose that Sammy arrives $t$ secs after the preceding bus
+arrival and let us express this fact with the event $A = \{T > t\}$. Let X be the time
+that Sammy has to wait for the next bus to arrive. What is the conditional CDF
+$F_{X\mid A}(x |A)$?
+
+## Example 3.13 (cont)
+
+## Example 3.13 (cont)
+
+Thus, the conditional cdf of $X$ is exponential with parameter $\lambda$, regardless
+the time $t$ that elapsed between the preceding bus arrival and Sammy’s arrival. 
+
+This
+is known as the **memorylessness** property of the exponential.
+
+Generally, if we model
+the time to complete a certain operation by an exponential random variable $X$,
+this property implies that as long as the operation has not been completed, the
+remaining time up to completion has the same exponential cdf, no matter when
+the operation started.
+
+## Conditional expectation
+
+The conditional expectation of $X$ given the event $A$ is defined as:
+$$
+E(X \mid A) = \int_{-\infty}^\infty
+x f_{X\mid A}(x)\,dx,
+$$
+and
+$$
+E[g(X) \mid A] = \int_{-\infty}^\infty
+g(x) f_{X\mid A}(x)\,dx.
+$$
+
+## More conditional expectation
+
+If $A_1, A_2, \ldots, A_n$ partition the sample space, with $P(A_i) > 0$ for all $i$, then
+$$
+f_X(x) = \sum_{i=1}^n P(A_i) f_{X\mid A_i}(x).$$
+
+## More conditional expectation
+
+Additionally, in the same context,
+$$
+E(X) = \sum_{i=1}^n P(A_i) E(X \mid A_i),
+$$
+and
+$$
+E[g(X)] = \sum_{i=1}^n P(A_i) E[g(X) \mid A_i].
+$$
+
+## Example
+
+Suppose that the random variable $X$ has the piecewise constant pdf
+$$
+f_X(x) =
+\begin{cases}
+1/3 &\text{if } 0\leq x \leq 1,\\
+2/3 &\text{if }1< x \leq 2,\\
+0 &\text{otherwise}.
+\end{cases}
+$$
+
+Determine the mean and variance of $X$.
+
+## Example 3.17
+
+![The piecewise constant pdf of this Example.](./images/f3-18.png){height=400 fig-alt="The piecewise constant pdf of this Example"}
+
+## Example 3.17 (cont)
+
+## Example 3.17 (cont)
+
+## Example 3.14
+
+The metro train arrives at the station near your home every
+quarter hour starting at 6:00 AM. You walk into the station every morning between
+7:10 and 7:30 AM, with the time in this interval being a uniform random variable.
+What is the pdf of the time you have to wait for the first train to arrive?
+
+## Example 3.14 pdf
+
+![The relevant pdfs of Example 3.14.](./images/f3-15.png){height=400 fig-alt="The relevant pdfs of Example 3.12."}
+
+## Example 3.14 (cont)
+
+## Example 3.14 (cont)
+
+# Conditioning one Random Variable on Another
+
+## Conditional distribution (random variables)
+
+Let $X$ and $Y$ be continuous random variables with joint pdf $f_{X,Y}$. For any $y$ with $f_Y(y) > 0$, the **conditional pdf** of $X$ given that $Y=y$ is defined by
+$$
+f_{X\mid Y}(x\mid y)=\frac{f_{X,Y}(x,y)}{f_Y(y)}.
+$$
+
+Note:
+- $Y=y$ is a fixed number in $f_{X\mid Y}$.
+- Only $X$ is random.
+
+## Conditional pdf normalization
+
+Demonstrate that a conditional pdf satisfies the normalization property.
+
+## Conditional pdf visualized
+
+![Visualization of the conditional pdf $f_{X\mid Y}(x\mid y)$.](./images/f3-16.png){height=400 fig-alt="Visualization of the conditional pdf."}
+
+## Example 3.15 Circular Uniform pdf
+
+Ben throws a dart at a circular target of radius $r$. We assume that he always hits the target, and that all points of impact $(x,y)$ are equally likely, so that the joint pdf of the random variables $X$ and $Y$ is uniform. Compute $f_{X\mid Y}(x \mid y).$
+
+## Example 3.15 (cont)
+
+## Example 3.15 (cont)
+
+## Example 3.15 (cont)
+
+## Example 3.16
+
+The speed of a typical vehicle that drives past a police radar is modeled as an exponentially distributed random variable $X$ with mean 50 miles per hour. The police's radar measurement of the vehicle's speed has an error that is modeled as a normal random variale with zero mean and standard deviation equal to one tenth of the vehicle's speed. What is the joint pdf of $X$ and $Y$?
+
+## Example 3.16 (cont)
+
+## Example 3.16 (cont)
+
+## Example 3.16 (cont)
+
+## Conditional pdf for more random variables
+
+$$
+f_{X, Y, Z}(x, y \mid z) = \frac{f_{X, Y, Z}(x, y, z)}{f_Z(z)},\quad f_Z(z) > 0.
+$$
+
+$$
+f_{X, Y, Z}(x, \mid y, z) = \frac{f_{X, Y, Z}(x, y, z)}{f_{Y,Z}(y, z)},\quad f_{Y,Z}(y,z) > 0.
+$$
+
+# Conditional Expectation
+
+## Conditional Expectation Definitions
+
+$$
+E(X \mid Y = y) = \int_{-\infty}^\infty x f_{X\mid Y}(x \mid y)\, dx.
+$$
+
+$$
+E(g(X) \mid Y = y) = \int_{-\infty}^\infty g(x) f_{X\mid Y}(x \mid y)\, dx.
+$$
+
+$$
+E(X) = \int_{-\infty}^\infty E(X \mid Y = y) f_{Y}(y)\, dy.
+$$
+
+## Conditional Expectation Definitions
+
+$$
+E[g(X, Y) \mid Y = y] = \int_{-\infty}^\infty g(x,y) f_{X\mid Y}(x \mid y)\, dx.
+$$
+
+$$
+E[g(X, Y)] = \int_{-\infty}^\infty E[g(X, Y)\mid Y = y] f_Y(y)\, dy.
+$$
+
+## Total Expectation Theorem Proof
+
+## Total Expectation Theorem Proof (cont)
+
+# Independence
+
+## Definition
+
+Two continuous random variables $X$ and $Y$ are **independent** if their joint pdf is the product of their marginal pdfs, i.e.,
+$$
+f_{X, Y}(x, y) = f_X(x)f_Y(y),\quad\text{for all}x,y.
+$$
+
+Alternatively,
+$$
+f_{X\mid Y}(x \mid y)=f_X(x),\quad\text{for all }y\text{ with }f_Y(y)\geq 0\text{ and all }x.
+$$
+
+## Example 3.18 Independent Normal Random Variables
+
+Let $X\sim N(\mu_x, \sigma^2_x)$ and $Y\sim N(\mu_y, \sigma^2_y)$ be independent normal random variables.
+
+## Example 3.18 (cont)
+
+Determine the joint pdf.
+
+## Example 3.18 (cont)
+
+Draw contours of the joint pdf.
+
+## Other facts about independence
+
+Show that if $X$ and $Y$ are independent, then 
+$$
+P(X \in A, Y \in B) = P(X \in A) P(Y \in B).
+$$
+
+## Other facts about independence
+
+Show that if $X$ and $Y$ are independent, then
+$$
+F_{X,Y}(x,y) = F_X(x)F_Y(y).
+$$
+
+## Other facts about independence
+
+Show that if $X$ and $Y$ are independent, then 
+$$
+E(XY) = E(X)E(Y).
+$$
+
+## Other facts about independence
+
+If $X$ and $Y$ are independent, then
+$$
+E[g(X)h(Y)]=E[g(X)]E[h(Y)].
+$$
