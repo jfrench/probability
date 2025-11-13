@@ -134,6 +134,7 @@ f_{X\mid Y}(x\mid y)=\frac{f_{X,Y}(x,y)}{f_Y(y)}.
 $$
 
 Note:
+
 - $Y=y$ is a fixed number in $f_{X\mid Y}$.
 - Only $X$ is random.
 
@@ -157,7 +158,7 @@ Ben throws a dart at a circular target of radius $r$. We assume that he always h
 
 ## Example 3.16
 
-The speed of a typical vehicle that drives past a police radar is modeled as an exponentially distributed random variable $X$ with mean 50 miles per hour. The police's radar measurement of the vehicle's speed has an error that is modeled as a normal random variale with zero mean and standard deviation equal to one tenth of the vehicle's speed. What is the joint pdf of $X$ and $Y$?
+The speed of a typical vehicle that drives past a police radar is modeled as an exponentially distributed random variable $X$ with mean 50 miles per hour. The police's radar measurement of the vehicle's speed has an error that is modeled as a normal random variable with zero mean and standard deviation equal to one tenth of the vehicle's speed. What is the joint pdf of $X$ and $Y$?
 
 ## Example 3.16 (cont)
 
@@ -168,11 +169,11 @@ The speed of a typical vehicle that drives past a police radar is modeled as an 
 ## Conditional pdf for more random variables
 
 $$
-f_{X, Y, Z}(x, y \mid z) = \frac{f_{X, Y, Z}(x, y, z)}{f_Z(z)},\quad f_Z(z) > 0.
+f_{X, Y \mid Z}(x, y \mid z) = \frac{f_{X, Y, Z}(x, y, z)}{f_Z(z)},\quad f_Z(z) > 0.
 $$
 
 $$
-f_{X, Y, Z}(x, \mid y, z) = \frac{f_{X, Y, Z}(x, y, z)}{f_{Y,Z}(y, z)},\quad f_{Y,Z}(y,z) > 0.
+f_{X \mid Y, Z}(x \mid y, z) = \frac{f_{X, Y, Z}(x, y, z)}{f_{Y,Z}(y, z)},\quad f_{Y,Z}(y,z) > 0.
 $$
 
 # Conditional Expectation
@@ -184,7 +185,7 @@ E(X \mid Y = y) = \int_{-\infty}^\infty x f_{X\mid Y}(x \mid y)\, dx.
 $$
 
 $$
-E(g(X) \mid Y = y) = \int_{-\infty}^\infty g(x) f_{X\mid Y}(x \mid y)\, dx.
+E[g(X) \mid Y = y] = \int_{-\infty}^\infty g(x) f_{X\mid Y}(x \mid y)\, dx.
 $$
 
 $$
@@ -211,12 +212,12 @@ $$
 
 Two continuous random variables $X$ and $Y$ are **independent** if their joint pdf is the product of their marginal pdfs, i.e.,
 $$
-f_{X, Y}(x, y) = f_X(x)f_Y(y),\quad\text{for all}x,y.
+f_{X, Y}(x, y) = f_X(x)f_Y(y),\quad\text{for all }x,y.
 $$
 
 Alternatively,
 $$
-f_{X\mid Y}(x \mid y)=f_X(x),\quad\text{for all }y\text{ with }f_Y(y)\geq 0\text{ and all }x.
+f_{X\mid Y}(x \mid y)=f_X(x),\quad\text{for all }y\text{ with }f_Y(y)\geq 0\text{  and all }x.
 $$
 
 ## Example 3.18 Independent Normal Random Variables

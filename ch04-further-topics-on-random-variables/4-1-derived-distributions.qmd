@@ -1,0 +1,230 @@
+---
+format:
+    revealjs:
+        css: style.css
+        auto-stretch: false
+self-contained: true
+callout-icon: false
+callout-appearance: simple
+---
+
+# Chapter 4 - Further Topics on Random Variables
+
+# 4.1 Derived Distributions
+
+## Context
+
+A **derived distribution** is the distribution of a random variable $Y=g(X)$ based on the distribution of $X$.
+
+ - We will consider continuous distributions.
+
+## Main approach
+
+To compute the pdf of $Y$:
+
+ 1. Calculate the cdf of $Y$ using the formula
+ $$
+F_Y(y) = P[g(X) \leq y] = \int_{\{x \mid g(x)\leq y\}} f_X(x)\,dx.
+ $$
+ 2. Differentiate $F_Y(y)$ to get the pdf of $Y$:
+ $$
+f_Y(y) = \frac{d}{dy}F_Y(y).
+ $$
+
+## Example 4.1
+
+Let $X\sim\text{Uniform}(0,1)$ and $Y=\sqrt{X}$. Determine the pdf of $Y$.
+
+## Example 4.1 (cont)
+
+## Example 4.2
+
+John Slow is deriving from Boston to the New York, a distance of 180 miles at a constant speed, whose values is uniformly distributed between 30 and 60 miles per hour. What is the pdf of the duration of the trip?
+
+## Example 4.2 (cont)
+
+## Example 4.2 (cont)
+
+## Example 4.2 visualized
+
+![Calculation of the pdf of $Y$ in Example 4.2.](./images/f4-1.png){height=400 fig-alt="Calculation of the pdf of Y in Example 4.2."}
+
+## Example 4.3
+
+Let $Y=g(X)=X^2$, where $X$ is a random variable with known pdf. Determine the pdf of $Y$.
+
+## Example 4.3 (cont)
+
+## Example 4.3 (cont)
+
+# The Linear Case
+
+## The pdf of a linear function
+
+Let $X$ be a continuous random variable with pdf $f_X$.
+
+Let
+$$
+Y = aX + b,
+$$
+where $a, b \in \mathbb{R}$ and $a\neq 0$. Then
+$$
+f_Y(y) = \frac{1}{|a|}f_x\left(\frac{y-b}{a}\right).
+$$
+
+## Formula verification
+
+## Example 4.4
+
+Suppose that $X \sim \text{Exponential}(\lambda)$ and $Y = aX + b$, where $a,b \in \mathbb{R}$ and $a \neq 0$.
+
+Determine the pdf of $Y$.
+
+## Example 4.4 (cont)
+
+## Example 4.5
+
+Suppose that $X \sim N(\mu, \sigma^2$ and $Y = aX + b$, where $a,b \in \mathbb{R}$ and $a \neq 0$.
+
+Determine the pdf of $Y$.
+
+## Example 4.5 (cont)
+
+# The Monotonic Case
+
+## Strictly monotonic
+
+$g$ is **strictly monotonically increasing** if $x < y$ means the $g(x) < g(y)$.
+
+$g$ is **strictly monotonically decreasing** if $x < y$ means the $g(x) > g(y)$.
+
+## Invertibility
+
+If $y = g(x)$ and $g$ is monotonically increasing or decreasing, then $g$ is invertible and $x = g^{-1}(y)=h(y)$.
+
+## Monotonicity and invertibility
+
+![The relationship between monotonicity and invertibility.](./images/f4-monotonic.png){height=400 fig-alt="The relationship between monotonicity and invertibility."}
+
+## pdf of a strictly monotonic function
+
+Let $X$ be a continuous random variable and $Y=g(X)$, where $g$ is strictly monotonic and differentiable. Then
+$$
+f_Y(y) = f_X(g^{-1}(y))\left|\frac{dg^{-1}(y)}{dy}\right|.
+$$
+
+## Formula verification
+
+## Formula visualized
+
+![Monotonic transformation probability.](./images/f4-3.png){height=400 fig-alt="Monotonic transformation probability."}
+
+## Example 4.2 (cont)
+
+John Slow is deriving from Boston to the New York, a distance of 180 miles at a constant speed, whose values is uniformly distributed between 30 and 60 miles per hour. What is the pdf of the duration of the trip?
+
+## Example 4.2 (cont)
+
+## Examle 4.2 (cont)
+
+## Example 4.6
+
+Let $X\sim\text{Uniform}(0,1)$ and $Y = X^2$. Determine the pdf of $Y$.
+
+## Example 4.6 (cont)
+
+# Functions of Two Random Variables
+
+## Example 4.7
+
+Two archers shoot at a target. The distance of each shot from the center of the target is uniformly distributed from 0 to 1, indpependent of the other other shot. What is the pdf of the distance of the losing shot from the center?
+
+## Example 4.7 (cont)
+
+## Example 4.7 (cont)
+
+## Example 4.8
+
+Let $X$ and $Y$ be independent random variables that are uniformly distributed on the interval $[0, 1]$. What os the pdf of the random variable $Z = Y/X$?
+
+## Example 4.8 (cont)
+
+## Example 4.8 (cont)
+
+## CDF calculation of $Z=Y/X$
+
+![The calculation of the cdf of $Z = Y/X$.](./images/f4-5.png){height=400 fig-alt="The calculation of the cdf of Z = Y/X."}
+
+## Example 4.9
+
+Romeo and Juliet have a date at a given time, and each, independently, will be late by an amount of time that is exponentially distributed with paramater $\lambda$. What is the pdf of the difference between their arrival times?
+
+## Example 4.9 (cont)
+
+## Example 4.9 (cont)
+
+## Romeo and Juliet cdf calculation
+
+![Romeo and Juliet cdf calculation.](./images/f4-rj.png){height=400 fig-alt="Romeo and Juliette cdf calculation."}
+
+
+# Sums of Independent Random Variables - Convolution
+
+## Discrete convolution
+
+Suppose that $Z = X+Y$ for independent random variables $X$ and $Y$. 
+
+For discrete $X$ and $Y$, 
+\begin{align}
+p_Z(z) &= P(X + Y = z)\\
+&= \sum_{\{(x,y)\mid x+y=z\}} P(X = x, Y = y)\\
+&= \sum_x P(X = x, Y = z-x)\\
+&= \sum_x p_X(x)p_Y(z-x).
+\end{align}
+
+This pmf $p_Z$ is called the convolution of the pmfs of $X$ and $Y$.
+
+## Continuous convolution
+
+For continuous $X$ and $Y$, 
+\begin{align}
+P(Z\leq z \mid X = x) &= P(X + Y \leq z \mid X = x)\\
+&= P(x + Y \leq  z)\\
+&= P(Y \leq z - x)
+\end{align}
+
+Taking the derivative of both sides, $f_{Z\mid X}(z \mid x) = f_Y(z-x)$.
+
+## Continuous convolution continued
+
+Thus,
+$$
+f_{X,Z}(x,z)=f_X(x)f_{Z\mid X}(z\mid x) = f_X(x)f_Y(z-x).
+$$
+and
+$$
+f_Z(z) = \int_{-\infty}^\infty f_{X,Z}(dx) = \int_{-\infty}^\infty f_X(x)f_Y(z-x)dx.
+$$
+
+## Example 4.10
+
+The random variables $X$ and $Y$ are independent and uniformly distributed in the interval $[0,1]$. Determine the pdf of $Z = X+Y$.
+
+## Example 4.10 (cont)
+
+## Example 4.10 (cont)
+
+## Example 4.11 Sum of Two Indep. Normals
+
+Let $X\sim N(\mu_x, \sigma^2_x)$, $Y\sim N(\mu_y, \sigma^2_y)$, with $X$ and $Y$ independent. Determine the pdf of $Z = X+Y$. 
+
+## Example 4.12
+
+Determine the convolution formula for $Z=X-Y$.
+
+## Example 4.12 (cont)
+
+## Example 4.12 (cont)
+
+## Example 4.12 (cont)
+
