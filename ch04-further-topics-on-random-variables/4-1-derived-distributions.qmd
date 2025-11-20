@@ -84,7 +84,7 @@ Determine the pdf of $Y$.
 
 ## Example 4.5
 
-Suppose that $X \sim N(\mu, \sigma^2$ and $Y = aX + b$, where $a,b \in \mathbb{R}$ and $a \neq 0$.
+Suppose that $X \sim N(\mu, \sigma^2$) and $Y = aX + b$, where $a,b \in \mathbb{R}$ and $a \neq 0$.
 
 Determine the pdf of $Y$.
 
@@ -137,7 +137,7 @@ Let $X\sim\text{Uniform}(0,1)$ and $Y = X^2$. Determine the pdf of $Y$.
 
 ## Example 4.7
 
-Two archers shoot at a target. The distance of each shot from the center of the target is uniformly distributed from 0 to 1, indpependent of the other other shot. What is the pdf of the distance of the losing shot from the center?
+Two archers shoot at a target. The distance of each shot from the center of the target is uniformly distributed from 0 to 1, independent of the other shot. What is the pdf of the distance of the losing shot from the center?
 
 ## Example 4.7 (cont)
 
@@ -145,7 +145,7 @@ Two archers shoot at a target. The distance of each shot from the center of the 
 
 ## Example 4.8
 
-Let $X$ and $Y$ be independent random variables that are uniformly distributed on the interval $[0, 1]$. What os the pdf of the random variable $Z = Y/X$?
+Let $X$ and $Y$ be independent random variables that are uniformly distributed on the interval $[0, 1]$. What is the pdf of the random variable $Z = Y/X$?
 
 ## Example 4.8 (cont)
 

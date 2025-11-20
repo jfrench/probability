@@ -1,0 +1,92 @@
+---
+format:
+    revealjs:
+        css: style.css
+        auto-stretch: false
+self-contained: true
+callout-icon: false
+callout-appearance: simple
+---
+
+# 4.2 Covariance and correlation
+
+## Definition
+The **covariance** of two random variables $X$ and $Y$ is
+$$
+\text{cov}(X, Y) = E[(X-E[X])(Y-E[Y])].
+$$
+
+$X$ and $Y$ are **uncorrelated** if $\text{cov}(X,Y)=0$.
+
+## Alternate form
+
+$\text{cov}(X, Y) = E(XY) - E(X)E(Y)$.
+
+## Covariance visualized
+
+![Positively and negatively correlated patterns.](./images/f4-11.png){height=400 fig-alt="Positively and negatively correlated patterns."}
+
+## Other results
+
+For scalars $a$ and $b$:
+
+- $\text{cov}(X, X) = \text{var}(X)$.
+- $\text{cov}(X, aY + b) = a\text{cov}(X, Y)$.
+- $\text{cov}(X, Y + Z) = \text{cov}(X, Y) + \text{cov}(X, Z)$.
+- $\text{cov}(X, Y) = 0$ if $X$ and $Y$ are indepedent.
+
+## Example
+
+Let $X$ be a discrete uniform on $\{-1, 0, 1\}$. Let $Y = X^2$.
+
+- Determine $\text{cov}(X, Y)$.
+- Are $X$ and $Y$ independent?
+
+## Example (cont)
+
+## Correlation
+
+The **correlation coefficient** of random variables $X$ and $Y$ is
+$$
+\rho(X, Y) = \frac{\text{cov}(X, Y)}{\sqrt{\text{var}(X)\text{var}(Y)}},
+$$
+when $\text{var}(X)>0$ and $\text{var}(Y)>0$.
+
+## Interpretation
+
+The correlation coefficient is a scaled version of covariance with $\rho\in[-1, 1]$.
+
+If $\rho > 0$, then the values of $X - E(X)$ and $Y-E(Y)$ tend to have the same sign (deviate from the mean in the same direction).
+
+If $\rho < 0$, then the deviations tend to have opposite signs.
+
+## Example 4.14
+
+Suppose that $X - E(X) = -[Y - E(Y)]$. Determine $\text{cor}(X, Y)$.
+
+## Example 4.14 (cont)
+
+# Variance of the Sum of Random Variables
+
+## Variance of a sum
+
+Let $X_1, X_2, \ldots, X_n$ be a sequence of random variables with finite variance. Then
+\begin{align}
+\text{var}\left(\sum_{i=1}^n X_i \right) &= \sum_{i=1}^n \text{var}(X_i) + \sum_{\{(i,j)\mid i\neq j\}} \text{cov}(X_i, X_j)\\
+&= \sum_{i=1}^n \text{var}(X_i) + 2 \sum_{i < j} \text{cov}(X_i, X_j).
+\end{align}
+
+## Variance of a sum (cont)
+
+## Variance of a sum (cont)
+
+## Example 4.15
+
+Suppose that $n$ people throw their hats in a box and then each picks one hat at random (without replacement).  Let $X_i$ be the random variable that person $i$ picks their own hat. 
+
+Determine
+$$
+\text{var}\left(\sum_{i=1}^n X_i \right).
+$$
+
+## Example 4.15 (cont)
