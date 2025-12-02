@@ -1,0 +1,126 @@
+---
+format:
+    revealjs:
+        css: style.css
+        auto-stretch: false
+self-contained: true
+callout-icon: false
+callout-appearance: simple
+---
+
+# 4.4 Conditional expectation and variance revisited
+
+## Law of Iterated Expectations 
+
+Also know as the law of total expectation:
+
+For two random variables $X$ and $Y$, 
+
+$$
+E[E(X \mid Y)] = E(X).
+$$
+
+Note: 
+
+- $E(X \mid Y = y)$ is a function of $y$ and non-random.
+- $E(X \mid Y)$ is a function of $Y$ and random.
+
+## Example 4.16
+
+Let $Y$ be a random variable producing a (probability) value in the interval $[0, 1]$.
+
+Let $X \mid Y = y \sim \text{Binomial}(n, y)$.
+
+## Example 4.16 (cont)
+
+Determine:
+
+- $E(X \mid Y = y)$
+- $E(X \mid Y)$
+- $E(X)$
+
+## Example 4.16 (cont)
+
+## Example 4.16 (cont)
+
+Determine $E(X)$ if $Y \sim \text{Uniform}(0, 1)$.
+
+## Example 4.17 Averaging Quiz Scores by Section
+
+A class has $n$ students and the quiz score of student $i$ is $x_i$. The average quiz score is
+$$
+m = \frac{1}{n}\sum_{i=1}^n x_i.
+$$
+
+## Example 4.17 (cont)
+
+The students are divided into $k$ disjoint subsets $A_1, A_2, \ldots, A_k$, with $n_s$ denoting the number of students in subset $A_s$. The probability that a student is in section $s$ is $1/n_s$.
+
+The average score in section $s$ is 
+$$
+m_s = \frac{1}{n_s}\sum_{i \in A_s} x_i.
+$$
+
+## Example 4.17 (cont)
+
+Determine $E(X)$ using the law of iterated expectations.
+
+## Example 4.17 (cont)
+
+# The Conditional Expectation of an Estimator
+
+Let an **estimator** $\hat{X} = E(X \mid Y)$.
+
+The **estimation error** is $\tilde{X} = \hat{X} - X$.
+
+Determine $E(\tilde{X})$
+
+## Mean Estimation Error (cont)
+
+## Uncorrelated Estimation Error
+
+Show that $\cov{\tilde{X}, \hat{X}} = 0$, i.e., the estimation error and the estimator are uncorrelated.
+
+## Uncorrelated Estimation Error (cont)
+
+# The Conditional Variance
+
+## Law of Total Variance
+
+The **law of total variance** states
+$$\text{var}(X) = E[\text{var}(X \mid Y)] + \text{var}(E[X\mid Y]).$$
+
+## Law of Total Variance (proof)
+
+## Law of Total Variance (proof)
+
+## Law of Total Variance (proof)
+
+## Example 4.16 (cont)
+
+Let $Y$ be a random variable producing a (probability) value in the interval $[0, 1]$. Let $X \mid Y = y \sim \text{Binomial}(n, y)$. Determine $\text{var}(X)$.
+
+## Example 4.16 (cont)
+
+## Example 4.21
+
+Consider a continuous random variable $X$ with the pdf given below.
+
+Define
+$$
+Y = \begin{cases}
+1,\quad &\text{if }x<1,\\
+2,\quad &\text{if }x\geq 1.
+\end{cases}
+$$
+
+Determine $\text{var}(X)$.
+
+## Example 4.21 (cont)
+
+![The pdf in Example 4.21.](./images/f4-13.png){height=400 fig-alt="The pdf in Example 4.21."}
+
+## Example 4.21 (cont)
+
+## Example 4.21 (cont)
+
